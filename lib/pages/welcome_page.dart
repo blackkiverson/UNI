@@ -68,7 +68,30 @@ class _WelcomePageState extends State<WelcomePage> {
                               color: Colors.white,
                               size: 16,
                             ),
-                          )
+                          ),
+                          // SizedBox(
+                          //   width: 200,
+                          //   height: 450,
+                          //   ),
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width - 50,
+                            height: MediaQuery.of(context).size.height - 300,
+                            child: Align(
+                              alignment: Alignment.bottomCenter,
+                              child: ElevatedButton(
+                                  onPressed: () {},
+                                  child: const Text(
+                                    "Next",
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                  style: ButtonStyle(
+                                      backgroundColor:
+                                          MaterialStateProperty.all<Color>(
+                                              Colors.blue.shade400)
+                                      )
+                                ),
+                            ),
+                          ),
                         ],
                       )
                     ],
