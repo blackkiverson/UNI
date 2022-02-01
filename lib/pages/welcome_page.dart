@@ -10,18 +10,19 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images = [
-    "wpone.jpg",
-    "wptwo.jpg",
+    "wp-one.jpg",
+    "wp-two.jpg",
+    "wp-three.jpg",
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(".Smif"),
-        backgroundColor: Color(0xFF490B2F),
-        centerTitle: true,
-      ),
+      // appBar: AppBar(
+      //   title: const Text(".Smif"),
+      //   backgroundColor: Color(0xFF490B2F),
+      //   centerTitle: true,
+      // ),
       body: PageView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: images.length,
@@ -31,8 +32,12 @@ class _WelcomePageState extends State<WelcomePage> {
               height: double.maxFinite,
               decoration: BoxDecoration(
                 image: DecorationImage(
-                  image: AssetImage("img/" + images[index]),
-                  repeat: ImageRepeat.repeatX
+                  image: AssetImage(
+                    "img/" + images[index]
+                    ),
+                  // repeat: ImageRepeat.repeatX //Used to repeat 
+                  // the image on the x-axis until filled.
+                  fit: BoxFit.cover
                 ),
               ),
             );
