@@ -18,6 +18,32 @@ class _WelcomePageState extends State<WelcomePage> {
     "wp-four.jpg",
   ];
 
+  Widget generateCircles(int index) {
+    double normalRadius = 2;
+    double currentIndexRadius = 5;
+
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        CircleAvatar(
+          backgroundColor: Colors.white,
+          radius: index != 0 ? normalRadius : currentIndexRadius,
+        ),
+        Padding(
+          padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
+          child: CircleAvatar(
+            backgroundColor: Colors.white,
+            radius: index != 1 ? normalRadius : currentIndexRadius,
+          ),
+        ),
+        CircleAvatar(
+          backgroundColor: Colors.white,
+          radius: index != 2 ? normalRadius : currentIndexRadius,
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -76,74 +102,102 @@ class _WelcomePageState extends State<WelcomePage> {
                       //   ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 40,
-                        height: MediaQuery.of(context).size.height - (index == 0 ? 280 : 320),
+                        height: MediaQuery.of(context).size.height -
+                            (index == 0 ? 280 : 320),
                         child: Align(
-                          alignment: Alignment.bottomCenter,
-                          child: index == 2
-                              ? ElevatedButton(
-                                  onPressed: () {},
-                                  child: const Text(
-                                    //"> > >",
-                                    "NEXT",
-                                    style: TextStyle(color: Colors.white),
-                                  ),
-                                  style: ButtonStyle(
-                                    fixedSize: MaterialStateProperty.all(
-                                        const Size.fromWidth(100)),
-                                    backgroundColor:
-                                        MaterialStateProperty.all<Color>(
-                                            Colors.blue.shade600),
-                                  ),
-                                )
-                              : index == 0
-                                  ? Column(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        ElevatedButton(
+                            alignment: Alignment.bottomCenter,
+                            child: Column(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                generateCircles(index),
+                                SizedBox(
+                                  child: index == 2
+                                      ? ElevatedButton(
                                           onPressed: () {},
                                           child: const Text(
                                             //"> > >",
-                                            "GET STARTED",
+                                            "NEXT",
                                             style:
                                                 TextStyle(color: Colors.white),
                                           ),
                                           style: ButtonStyle(
                                             fixedSize:
                                                 MaterialStateProperty.all(
-                                                    const Size.fromWidth(130)),
+                                                    const Size.fromWidth(100)),
                                             backgroundColor:
                                                 MaterialStateProperty.all<
                                                         Color>(
                                                     Colors.blue.shade600),
                                           ),
-                                        ),
-                                        Padding(
-                                          padding: const EdgeInsets.fromLTRB(0, 3, 16, 0),
-                                          child: Stack(
-                                            // mainAxisAlignment: MainAxisAlignment.center,
-                                            // ignore: prefer_const_literals_to_create_immutables
-                                            clipBehavior: Clip.none,
-                                            alignment: AlignmentDirectional.topStart,
-                                            children: [
-                                              const Text(
-                                                "If you have an existing account click",
-                                                style: TextStyle(
-                                                    color: Colors.white),
-                                              ),
-                                              Positioned(
-                                                top: -16,
-                                                right: -50,
-                                                child: TextButton(
-                                                    onPressed: () {},
-                                                    child: const Text("here", style: TextStyle(color: Color(0xffa6d6ff), decoration: TextDecoration.underline, ),),),
-                                              )
-                                            ],
-                                          ),
                                         )
-                                      ],
-                                    )
-                                  : null,
-                        ),
+                                      : index == 0
+                                          ? Column(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                ElevatedButton(
+                                                  onPressed: () {},
+                                                  child: const Text(
+                                                    //"> > >",
+                                                    "GET STARTED",
+                                                    style: TextStyle(
+                                                        color: Colors.white),
+                                                  ),
+                                                  style: ButtonStyle(
+                                                    fixedSize:
+                                                        MaterialStateProperty
+                                                            .all(const Size
+                                                                    .fromWidth(
+                                                                130)),
+                                                    backgroundColor:
+                                                        MaterialStateProperty
+                                                            .all<Color>(Colors
+                                                                .blue.shade600),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding:
+                                                      const EdgeInsets.fromLTRB(
+                                                          0, 3, 16, 0),
+                                                  child: Stack(
+                                                    // mainAxisAlignment: MainAxisAlignment.center,
+                                                    // ignore: prefer_const_literals_to_create_immutables
+                                                    clipBehavior: Clip.none,
+                                                    alignment:
+                                                        AlignmentDirectional
+                                                            .topStart,
+                                                    children: [
+                                                      const Text(
+                                                        "If you have an existing account click",
+                                                        style: TextStyle(
+                                                            color:
+                                                                Colors.white),
+                                                      ),
+                                                      Positioned(
+                                                        top: -16,
+                                                        right: -50,
+                                                        child: TextButton(
+                                                          onPressed: () {},
+                                                          child: const Text(
+                                                            "here",
+                                                            style: TextStyle(
+                                                              color: Color(
+                                                                  0xffa6d6ff),
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .underline,
+                                                            ),
+                                                          ),
+                                                        ),
+                                                      )
+                                                    ],
+                                                  ),
+                                                )
+                                              ],
+                                            )
+                                          : null,
+                                )
+                              ],
+                            )),
                       ),
                     ],
                   )
