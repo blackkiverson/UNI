@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
+import 'package:smifapp/pages/sign_up.dart';
 import 'package:smifapp/widgets/app_large_text.dart';
 import 'package:smifapp/widgets/app_text.dart';
 
@@ -27,7 +28,7 @@ class _WelcomePageState extends State<WelcomePage> {
       children: [
         CircleAvatar(
           backgroundColor: Colors.white,
-          radius: index != 0 ? normalRadius : currentIndexRadius,
+          radius: index != 0 ? normalRadius : currentIndexRadius,          
         ),
         Padding(
           padding: const EdgeInsets.fromLTRB(5, 0, 5, 0),
@@ -102,8 +103,7 @@ class _WelcomePageState extends State<WelcomePage> {
                       //   ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 40,
-                        height: MediaQuery.of(context).size.height -
-                            (index == 0 ? 280 : 320),
+                        height: MediaQuery.of(context).size.height - (300),
                         child: Align(
                             alignment: Alignment.bottomCenter,
                             child: Column(
@@ -111,91 +111,35 @@ class _WelcomePageState extends State<WelcomePage> {
                               children: [
                                 generateCircles(index),
                                 SizedBox(
-                                  child: index == 2
-                                      ? ElevatedButton(
-                                          onPressed: () {},
-                                          child: const Text(
-                                            //"> > >",
-                                            "NEXT",
-                                            style:
-                                                TextStyle(color: Colors.white),
-                                          ),
-                                          style: ButtonStyle(
-                                            fixedSize:
-                                                MaterialStateProperty.all(
-                                                    const Size.fromWidth(100)),
-                                            backgroundColor:
-                                                MaterialStateProperty.all<
-                                                        Color>(
-                                                    Colors.blue.shade600),
-                                          ),
-                                        )
-                                      : index == 0
-                                          ? Column(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                ElevatedButton(
-                                                  onPressed: () {},
-                                                  child: const Text(
-                                                    //"> > >",
-                                                    "GET STARTED",
-                                                    style: TextStyle(
-                                                        color: Colors.white),
-                                                  ),
-                                                  style: ButtonStyle(
-                                                    fixedSize:
-                                                        MaterialStateProperty
-                                                            .all(const Size
-                                                                    .fromWidth(
-                                                                130)),
-                                                    backgroundColor:
-                                                        MaterialStateProperty
-                                                            .all<Color>(Colors
-                                                                .blue.shade600),
-                                                  ),
+                                    child: index == 2
+                                        ? ElevatedButton(
+                                            onPressed: () {
+                                              Navigator.push(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      const SignUp(),
                                                 ),
-                                                Padding(
-                                                  padding:
-                                                      const EdgeInsets.fromLTRB(
-                                                          0, 3, 16, 0),
-                                                  child: Stack(
-                                                    // mainAxisAlignment: MainAxisAlignment.center,
-                                                    // ignore: prefer_const_literals_to_create_immutables
-                                                    clipBehavior: Clip.none,
-                                                    alignment:
-                                                        AlignmentDirectional
-                                                            .topStart,
-                                                    children: [
-                                                      const Text(
-                                                        "If you have an existing account click",
-                                                        style: TextStyle(
-                                                            color:
-                                                                Colors.white),
-                                                      ),
-                                                      Positioned(
-                                                        top: -16,
-                                                        right: -50,
-                                                        child: TextButton(
-                                                          onPressed: () {},
-                                                          child: const Text(
-                                                            "here",
-                                                            style: TextStyle(
-                                                              color: Color(
-                                                                  0xffa6d6ff),
-                                                              decoration:
-                                                                  TextDecoration
-                                                                      .underline,
-                                                            ),
-                                                          ),
-                                                        ),
-                                                      )
-                                                    ],
-                                                  ),
-                                                )
-                                              ],
-                                            )
-                                          : null,
-                                )
+                                              );
+                                            },
+                                            child: const Text(
+                                              //"> > >",
+                                              "NEXT",
+                                              style: TextStyle(
+                                                  color: Colors.white),
+                                            ),
+                                            style: ButtonStyle(
+                                              fixedSize:
+                                                  MaterialStateProperty.all(
+                                                      const Size.fromWidth(
+                                                          100)),
+                                              backgroundColor:
+                                                  MaterialStateProperty.all<
+                                                          Color>(
+                                                      Colors.blue.shade600),
+                                            ),
+                                          )
+                                        : null)
                               ],
                             )),
                       ),
