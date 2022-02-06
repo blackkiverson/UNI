@@ -134,8 +134,7 @@ class _WelcomePageState extends State<WelcomePage> {
                                                       const Size.fromWidth(
                                                           100)),
                                               backgroundColor:
-                                                  MaterialStateProperty.all<
-                                                          Color>(
+                                                  MaterialStateProperty.all<Color>(                                                       
                                                       Colors.blue.shade600),
                                             ),
                                           )
