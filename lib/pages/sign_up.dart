@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smifapp/pages/home_page.dart';
 import 'package:smifapp/pages/log_in.dart';
 
 class SignUp extends StatefulWidget {
@@ -262,7 +263,15 @@ class _SignUpState extends State<SignUp> {
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Navigator.push(
+                            context, 
+                            MaterialPageRoute(
+                              builder: (context) => 
+                              const HomePage(),
+                            )
+                          );
+                        },
                         child: const Text("SIGN UP",
                             style: TextStyle(
                               color: Colors.white,
