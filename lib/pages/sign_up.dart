@@ -244,10 +244,10 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
-                          keyboardType: TextInputType.visiblePassword,
-                          style: TextStyle(color: Colors.black),
-                          decoration: InputDecoration(
+                        child: TextField(
+                          obscureText: isPasswordVisible ? false : true,
+                          style: const TextStyle(color: Colors.black),
+                          decoration: const InputDecoration(
                             border: InputBorder.none,
                             contentPadding: EdgeInsets.only(top: 14),
                             prefixIcon: Icon(Icons.vpn_key),
