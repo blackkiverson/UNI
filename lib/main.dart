@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'pages/welcome_page.dart';
+
 // import 'package:smifapp/pages/welcome_page.dart';
 
 void main() {

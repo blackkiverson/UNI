@@ -1,8 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smifapp/pages/sign_up.dart';
-
-import 'home_page.dart';
+import 'main_page.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -20,15 +19,15 @@ class _LogInState extends State<LogIn> {
     // ignore: prefer_const_constructors
     return Scaffold(
       body: SafeArea(
-      child: Container(
-        height: double.maxFinite,
-        width: double.maxFinite,
-        decoration: const BoxDecoration(
-          image: DecorationImage(
-            image: AssetImage("img/wp-six.jpg"),
-            fit: BoxFit.cover,
+        child: Container(
+          height: double.maxFinite,
+          width: double.maxFinite,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage("img/wp-six.jpg"),
+              fit: BoxFit.cover,
+            ),
           ),
-        ),
         child: Form(
             key: _formkey,
             child: SingleChildScrollView(
@@ -259,7 +258,21 @@ class _LogInState extends State<LogIn> {
                   //   ],
                   // ),
 
-                  const SizedBox(height: 200),
+                  const SizedBox(
+                    height: 50
+                  ),
+                  
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text(
+                      "Forgot Password?",
+                      style: TextStyle(
+                        color: Colors.blue
+                      ),
+                    ),                    
+                  ),
+
+                  const SizedBox(height: 150),
                   Column(
                     children: [
                       ElevatedButton(
@@ -268,7 +281,7 @@ class _LogInState extends State<LogIn> {
                             context, 
                             MaterialPageRoute(
                               builder: (context) => 
-                              const HomePage(),
+                              const MainPage(),
                             )
                           );
                         },
@@ -278,7 +291,8 @@ class _LogInState extends State<LogIn> {
                             )),
                       )
                     ],
-                  ),
+                  ),                  
+
                   TextButton(
                     onPressed: () {
                       Navigator.push(
@@ -300,7 +314,7 @@ class _LogInState extends State<LogIn> {
               ),
             ),
           ),
-      ),
+        ),
       ),
     );
   }
