@@ -13,7 +13,7 @@ class _DmPageState extends State<DmPage> {
   Widget build(BuildContext context) {
     return Container(
       child: const Center(
-        child: Text("Messages Page"))
+        child: Text("Messages"))
     );
   }
 }
