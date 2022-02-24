@@ -14,285 +14,150 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  bool isSelected = true;
+  List<Map<String, String>> mockData = [
+    {
+      "username": "Samuel",
+      "tag": "Photography",
+      "post":
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
+      "profile_image": "img/wptwo.jpg",
+      "post_image": "img/wp-six.jpg",
+      "post_video": "",
+    },
+    {
+      "username": "Isioma",
+      "tag": "Music",
+      "post":
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
+      "profile_image": "img/wpone.jpg",
+      "post_image": "img/wp-five.jpg",
+      "post_video": "",
+    },
+    {
+      "username": "Miracle",
+      "tag": "Education",
+      "post":
+          "Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
+      "profile_image": "img/wptwo.jpg",
+      "post_image": "",
+      "post_video": "",
+    },
+  ];
+  bool isSelected = false;
 
   @override
   Widget build(BuildContext context) {
     return ListView(
-      // physics: const AlwaysScrollableScrollPhysics(),
-      scrollDirection: Axis.vertical,
-      children: [
-        Card(
-          clipBehavior: Clip.antiAlias,
-          margin: const EdgeInsets.fromLTRB(0, 5, 0, 8),
-          child: Column(
-            children: [
-              ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                  child: CircleAvatar(
-                    radius: 24,
-                    backgroundColor: Colors.blue,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.person),
-                    ),
-                    foregroundImage: const AssetImage("img/wptwo.jpg"),
-                  ),
-                ),
-                title: Row(
+        // physics: const AlwaysScrollableScrollPhysics(),
+        scrollDirection: Axis.vertical,
+        children: mockData
+            .map(
+              (item) => Card(
+                clipBehavior: Clip.antiAlias,
+                margin: const EdgeInsets.fromLTRB(0, 5, 0, 8),
+                child: Column(
                   children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Username",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(
-                          const Size(0, 0),
+                    ListTile(
+                      leading: Padding(
+                        padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
+                        child: CircleAvatar(
+                          radius: 24,
+                          backgroundColor: Colors.blue,
+                          child: IconButton(
+                            onPressed: () {},
+                            icon: const Icon(Icons.person),
+                          ),
+                          foregroundImage: AssetImage(item["profile_image"]!),
                         ),
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(0)),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                       ),
+                      title: Row(
+                        children: [
+                          TextButton(
+                            onPressed: () {},
+                            child: Text(
+                              item["username"]!,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w600),
+                            ),
+                            style: ButtonStyle(
+                              minimumSize: MaterialStateProperty.all(
+                                const Size(0, 0),
+                              ),
+                              padding: MaterialStateProperty.all(
+                                  const EdgeInsets.all(0)),
+                              tapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                            ),
+                          ),
+                        ],
+                      ),
+                      subtitle: Text(
+                        item["tag"]!,
+                        style: const TextStyle(
+                            color: Colors.black,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.w400,
+                            fontSize: 12),
+                      ),
+                      trailing: IconButton(
+                        padding: const EdgeInsets.only(bottom: 15),
+                        onPressed: () {},
+                        icon: const Icon(Icons.more_horiz_rounded),
+                        color: Colors.black,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(75, 0, 10, 20),
+                      child: Text(item["post"]!,
+                          style: const TextStyle(color: Colors.black)),
+                    ),
+                    item["post_image"] != ""
+                        ? Padding(
+                            padding: const EdgeInsets.fromLTRB(75, 0, 20, 0),
+                            child: Image(
+                              image: AssetImage(item["post_image"]!),
+                              fit: BoxFit.cover,
+                              height: MediaQuery.of(context).size.height - 550,
+                              width: MediaQuery.of(context).size.width,
+                            ),
+                          )
+                        : const Padding(padding: EdgeInsets.all(0)),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.mode_comment_outlined),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(
+                              () {
+                                isSelected = !isSelected;
+                              },
+                            );
+                          },
+                          icon: Icon(
+                            isSelected
+                                ? Icons.favorite
+                                : Icons.favorite_outline_outlined,
+                            color: isSelected ? Colors.red : Colors.black,
+                          ),
+                          // color: isSelected ? Colors.red : Colors.black
+                        ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.share_outlined),
+                          // color: isSelected ? Colors.purple.shade400 : Colors.black
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                subtitle: const Text(
-                  'Photography',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12),
-                ),
-                trailing: IconButton(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_horiz_rounded),
-                  color: Colors.black,
-                ),
               ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(75, 0, 10, 20),
-                child: Text(
-                    'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                    style: TextStyle(color: Colors.black)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(75, 0, 20, 0),
-                child: Image(
-                  image: AssetImage('img/wpone.jpg'),
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height - 550,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      setState(
-                        () {
-                          if (isSelected) {
-                            (Colors.blue);
-                          } else {
-                            (Colors.black);
-                          }
-                        },
-                      );
-                    },
-                    
-                    icon: const Icon(Icons.mode_comment_outlined),
-                    // color: isSelected ? Colors.blue : null
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      setState(
-                        () {
-                          if (isSelected) {
-                            Colors.red;
-                          } else {
-                            Colors.black;
-                          }
-                        },
-                      );
-                    },
-                    icon: const Icon(Icons.favorite_outline_outlined),
-                    // color: isSelected ? Colors.red : Colors.black
-                  ),
-                  IconButton(
-                    onPressed: () {
-                      setState(
-                        () {
-                          if (isSelected) {
-                            Colors.purple.shade400;
-                          } else {
-                            Colors.black;
-                          }
-                        },
-                      );
-                    },
-                    icon: const Icon(Icons.share_outlined),
-                    // color: isSelected ? Colors.purple.shade400 : Colors.black
-                  ),
-                ],
-              ),              
-            ],
-          ),
-        ),
-        Card(
-          clipBehavior: Clip.antiAlias,
-          margin: const EdgeInsets.fromLTRB(0, 5, 0, 8),
-          child: Column(
-            children: [
-              ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                  child: CircleAvatar(
-                    radius: 24,
-                    backgroundColor: Colors.blue,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.person),
-                    ),
-                    foregroundImage: const AssetImage("img/wp-three.jpg"),
-                  ),
-                ),
-                title: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Username",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(
-                          const Size(0, 0),
-                        ),
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(0)),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  'Photography',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12),
-                ),
-                trailing: IconButton(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_horiz_rounded),
-                  color: Colors.black,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(75, 0, 10, 20),
-                child: Text(
-                    'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                    style: TextStyle(color: Colors.black)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(75, 0, 20, 30),
-                child: Image(
-                  image: AssetImage('img/wp-six.jpg'),
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height - 550,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
-            ],
-          ),
-        ),
-        Card(
-          clipBehavior: Clip.antiAlias,
-          margin: const EdgeInsets.fromLTRB(0, 5, 0, 8),
-          child: Column(
-            children: [
-              ListTile(
-                leading: Padding(
-                  padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
-                  child: CircleAvatar(
-                    radius: 24,
-                    backgroundColor: Colors.blue,
-                    child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(Icons.person),
-                    ),
-                    foregroundImage: const AssetImage("img/wp-four.jpg"),
-                  ),
-                ),
-                title: Row(
-                  children: [
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Username",
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w600),
-                      ),
-                      style: ButtonStyle(
-                        minimumSize: MaterialStateProperty.all(
-                          const Size(0, 0),
-                        ),
-                        padding:
-                            MaterialStateProperty.all(const EdgeInsets.all(0)),
-                        tapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                    ),
-                  ],
-                ),
-                subtitle: const Text(
-                  'Photography',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontStyle: FontStyle.italic,
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12),
-                ),
-                trailing: IconButton(
-                  padding: const EdgeInsets.only(bottom: 15),
-                  onPressed: () {},
-                  icon: const Icon(Icons.more_horiz_rounded),
-                  color: Colors.black,
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.fromLTRB(75, 0, 10, 20),
-                child: Text(
-                    'Greyhound divisively hello coldly wonderfully marginally far upon excluding.',
-                    style: TextStyle(color: Colors.black)),
-              ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(75, 0, 20, 30),
-                child: Image(
-                  image: AssetImage('img/wp-two.jpg'),
-                  fit: BoxFit.cover,
-                  height: MediaQuery.of(context).size.height - 550,
-                  width: MediaQuery.of(context).size.width,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
+            )
+            .toList()
     );
   }
 }
