@@ -21,7 +21,7 @@ class _HomePageState extends State<HomePage> {
       "post":
           "Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
       "profile_image": "img/wptwo.jpg",
-      "post_image": "",
+      "post_image": "img/wp-six.jpg",
       "post_video": "",
     },
     {

@@ -30,8 +30,8 @@ class _MainPageState extends State<MainPage> {
         onTap: onTap,
         currentIndex: currentindex,
         selectedItemColor: Colors.blue.shade400,
-        unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
+        unselectedItemColor: Colors.black,
+        backgroundColor: Colors.white,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 30,
@@ -50,7 +50,7 @@ class _MainPageState extends State<MainPage> {
       ),
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        backgroundColor: Colors.black,
+        backgroundColor: Colors.white,
         title: Padding(
           padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
           child: CircleAvatar(
@@ -68,7 +68,7 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(
                 Icons.notifications_none,
                 size: 30,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ),
