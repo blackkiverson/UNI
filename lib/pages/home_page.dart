@@ -6,6 +6,7 @@ import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:smifapp/widgets/like_button.dart';
+import 'package:smifapp/widgets/menu_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -109,41 +110,7 @@ class _HomePageState extends State<HomePage> {
                       ),
 
                       //creating a dropdownbutton with secondary options for the mode menu
-                      trailing: PopupMenuButton(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        icon: const Icon(Icons.more_horiz_rounded),
-                        color: Colors.white,
-                        itemBuilder: (context) => <PopupMenuEntry>[
-                          PopupMenuItem(
-                            child: ListTile(
-                              title: Text("Report Tweet"),
-                              trailing: Icon(Icons.flag_outlined),
-                            ),
-                          ),
-                          // const PopupMenuDivider(),
-                          PopupMenuItem(
-                            // height: ,
-                            child: ListTile(
-                              title: Text("Block User"),
-                              trailing: Icon(Icons.block),
-                            ),
-                          ),
-                          PopupMenuItem(
-                            // height: ,
-                            child: ListTile(
-                              title: Text("Mute User"),
-                              trailing: Icon(Icons.volume_off_outlined),
-                            ),
-                          ),
-                          PopupMenuItem(
-                            // height: ,
-                            child: ListTile(
-                              title: Text("Follow User"),
-                              trailing: Icon(Icons.person_add_alt),
-                            ),
-                          ),
-                        ],
-                      ),
+                      trailing: MenuButton(),
                     ),
 
                     //uses the Mockdata to generate the post text and media
