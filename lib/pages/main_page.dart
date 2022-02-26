@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:smifapp/pages/dm_page.dart';
 import 'package:smifapp/pages/fav_page.dart';
 import 'package:smifapp/pages/home_page.dart';
+import 'package:smifapp/pages/post_page.dart';
 import 'package:smifapp/pages/search_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -40,8 +41,7 @@ class _MainPageState extends State<MainPage> {
         items: const [
           BottomNavigationBarItem(
               label: "Home", icon: Icon(Icons.home_outlined)),
-          BottomNavigationBarItem(
-              label: "Search", icon: Icon(Icons.search)),
+          BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
           BottomNavigationBarItem(
               label: "Favourite", icon: Icon(Icons.bookmark_outline)),
           BottomNavigationBarItem(
@@ -76,7 +76,13 @@ class _MainPageState extends State<MainPage> {
         elevation: 0,
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const PostPage(),
+              ));
+        },
         backgroundColor: Colors.blue,
         foregroundColor: Colors.white,
         child: const Icon(Icons.add),
