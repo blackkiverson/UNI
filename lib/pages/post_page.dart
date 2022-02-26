@@ -6,6 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:smifapp/pages/home_page.dart';
+import 'package:smifapp/pages/main_page.dart';
 
 class PostPage extends StatefulWidget {
   const PostPage({Key? key}) : super(key: key);
@@ -28,7 +30,13 @@ class _PostPageState extends State<PostPage> {
         title: Align(
           alignment: Alignment.centerLeft,
           child: TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MainPage(),
+                  ));
+            },
             child: Text("Cancel", style: TextStyle(color: Colors.black)),
           ),
         ),
