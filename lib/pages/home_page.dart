@@ -5,6 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
+import 'package:smifapp/widgets/like_button.dart';
+import 'package:smifapp/widgets/menu_button.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -50,7 +52,7 @@ class _HomePageState extends State<HomePage> {
     return ListView(
         // physics: const AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
-        children: mockData
+        children: mockData  //mockData to generate a dynamic User feed
             .map(
               (item) => Card(
                 clipBehavior: Clip.antiAlias,
@@ -58,6 +60,8 @@ class _HomePageState extends State<HomePage> {
                 child: Column(
                   children: [
                     ListTile(
+
+                      //creates the top padding of every post on the home feed
                       leading: Padding(
                         padding: const EdgeInsets.fromLTRB(3, 0, 0, 0),
                         child: CircleAvatar(
@@ -70,6 +74,8 @@ class _HomePageState extends State<HomePage> {
                           foregroundImage: AssetImage(item["profile_image"]!),
                         ),
                       ),
+
+                      //creates the username using the mockData
                       title: Row(
                         children: [
                           TextButton(
@@ -92,6 +98,8 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ],
                       ),
+
+                      // shows the Mockdata for the Post Tag
                       subtitle: Text(
                         item["tag"]!,
                         style: const TextStyle(
@@ -100,13 +108,12 @@ class _HomePageState extends State<HomePage> {
                             fontWeight: FontWeight.w400,
                             fontSize: 12),
                       ),
-                      trailing: IconButton(
-                        padding: const EdgeInsets.only(bottom: 15),
-                        onPressed: () {},
-                        icon: const Icon(Icons.more_horiz_rounded),
-                        color: Colors.black,
-                      ),
+
+                      //creating a dropdownbutton with secondary options for the mode menu
+                      trailing: MenuButton(),
                     ),
+
+                    //uses the Mockdata to generate the post text and media
                     Padding(
                       padding: const EdgeInsets.fromLTRB(75, 0, 10, 20),
                       child: Text(item["post"]!,
@@ -123,33 +130,25 @@ class _HomePageState extends State<HomePage> {
                             ),
                           )
                         : const Padding(padding: EdgeInsets.all(0)),
+
+                    //creates the social interaction buttons at the buttom of the post
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
+
+                        //IconButton() for the comment feature
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.mode_comment_outlined),
                         ),
-                        IconButton(
-                          onPressed: () {
-                            setState(
-                              () {
-                                isSelected = !isSelected;
-                              },
-                            );
-                          },
-                          icon: Icon(
-                            isSelected
-                                ? Icons.favorite
-                                : Icons.favorite_outline_outlined,
-                            color: isSelected ? Colors.red : Colors.black,
-                          ),
-                          // color: isSelected ? Colors.red : Colors.black
-                        ),
+
+                        //LikeButton() widget
+                        LikeButton(),
+
+                        //IconButton() for the share feature
                         IconButton(
                           onPressed: () {},
                           icon: const Icon(Icons.share_outlined),
-                          // color: isSelected ? Colors.purple.shade400 : Colors.black
                         ),
                       ],
                     ),
@@ -157,7 +156,6 @@ class _HomePageState extends State<HomePage> {
                 ),
               ),
             )
-            .toList()
-    );
+            .toList());
   }
 }
