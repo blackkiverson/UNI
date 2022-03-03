@@ -49,20 +49,38 @@ class _MainPageState extends State<MainPage> {
         ],
       ),
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        elevation: 0,
         backgroundColor: Colors.white,
-        title: Padding(
-          padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
+        leading: Padding(
+          padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
           child: CircleAvatar(
-            radius: 20,
+            radius: 30,
             backgroundColor: Colors.blue,
             child: IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
             foregroundImage: const AssetImage("img/wpone.jpg"),
           ),
         ),
+        // ignore: avoid_unnecessary_containers
+        title: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(20),
+            color: Colors.white60,         
+          ),
+          child: TextField(
+              keyboardType: TextInputType.name,
+              style: TextStyle(color: Colors.black),
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                contentPadding: EdgeInsets.only(top: 14),
+                prefixIcon: Icon(Icons.search),
+                hintText: "Search",
+                hintStyle: TextStyle(color: Colors.blueGrey),
+              ),
+            ),
+        ),
         actions: [
           Padding(
-            padding: const EdgeInsets.fromLTRB(0, 0, 25, 0),
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: IconButton(
               onPressed: () {},
               icon: const Icon(
@@ -73,9 +91,8 @@ class _MainPageState extends State<MainPage> {
             ),
           ),
         ],
-        elevation: 0,
       ),
-      floatingActionButton: FloatingActionButton(        
+      floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(
               context,
