@@ -60,24 +60,6 @@ class _MainPageState extends State<MainPage> {
             foregroundImage: const AssetImage("img/wpone.jpg"),
           ),
         ),
-        // ignore: avoid_unnecessary_containers
-        title: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(20),
-            color: Colors.white60,         
-          ),
-          child: TextField(
-              keyboardType: TextInputType.name,
-              style: TextStyle(color: Colors.black),
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                contentPadding: EdgeInsets.only(top: 14),
-                prefixIcon: Icon(Icons.search),
-                hintText: "Search",
-                hintStyle: TextStyle(color: Colors.blueGrey),
-              ),
-            ),
-        ),
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
