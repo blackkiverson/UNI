@@ -23,7 +23,7 @@ class _SearchPageState extends State<SearchPage> {
             alignment: Alignment.center,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
-              color: Colors.white,
+              color: Colors.blue.shade100
             ),
             child: Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
@@ -38,10 +38,10 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
         ),
-        SingleChildScrollView(
-            // child: ListView(),
-            ),
+        SingleChildScrollView(),
       ],
     );
   }
+
+  color(MaterialColor blue) {}
 }
