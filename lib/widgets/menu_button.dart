@@ -18,7 +18,7 @@ class _MenuButtonState extends State<MenuButton> {
       itemBuilder: (context) => <PopupMenuEntry>[
         PopupMenuItem(
           child: ListTile(onTap: () {},
-            title: Text("Report Tweet"),
+            title: Text("Report Post"),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
             dense: true,
@@ -27,22 +27,22 @@ class _MenuButtonState extends State<MenuButton> {
         ),
         PopupMenuItem(                   
           child: ListTile(onTap: () {},
-            title: Text("Block User"),
+            title: Text("Favourite"),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
             dense: true,
-            trailing: Icon(Icons.block),
+            trailing: Icon(Icons.bookmark_border_outlined),
           ),
         ),
-        PopupMenuItem(          
-          child: ListTile(onTap: () {},
-            title: Text("Mute User"),
-            contentPadding:
-                EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
-            dense: true,
-            trailing: Icon(Icons.volume_off_outlined),
-          ),
-        ),
+        // PopupMenuItem(          
+        //   child: ListTile(onTap: () {},
+        //     title: Text("Mute User"),
+        //     contentPadding:
+        //         EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
+        //     dense: true,
+        //     trailing: Icon(Icons.volume_off_outlined),
+        //   ),
+        // ),
         PopupMenuItem(
           child: ListTile(
             onTap: () {},
@@ -57,7 +57,7 @@ class _MenuButtonState extends State<MenuButton> {
           child: ListTile(
             onTap: () {},
             title: Text("Follow Tag"),
-            trailing: Icon(Icons.bookmark_border_sharp),
+            trailing: Icon(Icons.tag),
             dense: true,
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
