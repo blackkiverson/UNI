@@ -1,8 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
-import 'package:smifapp/widgets/like_button.dart';
-import 'package:smifapp/widgets/menu_button.dart';
 import 'package:smifapp/widgets/post_card.dart';
 
 class SearchPage extends StatefulWidget {
@@ -64,12 +62,13 @@ class _SearchPageState extends State<SearchPage> {
             ),
           ),
         ),
-        Positioned(
-          top: 0,
+        Container(
+          padding: EdgeInsets.fromLTRB(0, 0, 57, 15),
+          color: Colors.white,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(55, 10, 0, 0),
+            padding: EdgeInsets.fromLTRB(55, 8, 0, 0),
             child: Container(
-              height: 45,
+              height: 40,
               width: 300,
               alignment: Alignment.center,
               decoration: BoxDecoration(

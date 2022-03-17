@@ -5,8 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/painting.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
-import 'package:smifapp/widgets/like_button.dart';
-import 'package:smifapp/widgets/menu_button.dart';
 import 'package:smifapp/widgets/post_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -53,10 +51,15 @@ class _HomePageState extends State<HomePage> {
     return ListView(
         // physics: const AlwaysScrollableScrollPhysics(),
         scrollDirection: Axis.vertical,
-        children: mockData  //mockData to generate a dynamic User feed
-            .map(
-              (item) => PostCard(avatarImage: item["profile_image"]!, username: item["username"]!, postTag: item["tag"]!, postText: item["post"]!, postImage: item["post_image"]!, postVideo: item["post_video"],)
-            )
+        children: mockData //mockData to generate a dynamic User feed
+            .map((item) => PostCard(
+                  avatarImage: item["profile_image"]!,
+                  username: item["username"]!,
+                  postTag: item["tag"]!,
+                  postText: item["post"]!,
+                  postImage: item["post_image"]!,
+                  postVideo: item["post_video"],
+                ))
             .toList());
   }
 }

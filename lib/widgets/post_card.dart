@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'like_button.dart';
 import 'menu_button.dart';
 
+// ignore: must_be_immutable
 class PostCard extends StatefulWidget {
   PostCard(
       {Key? key,
@@ -29,8 +30,9 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
+      color: Colors.white,
       clipBehavior: Clip.antiAlias,
-      margin: const EdgeInsets.fromLTRB(0, 5, 0, 8),
+      margin: const EdgeInsets.fromLTRB(0, 1, 0, 0.4),
       child: Column(
         children: [
           ListTile(
@@ -68,6 +70,7 @@ class _PostCardState extends State<PostCard> {
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),
+                // Text("        " + time),
               ],
             ),
 
