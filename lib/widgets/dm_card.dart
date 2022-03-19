@@ -30,7 +30,7 @@ class _DmCardState extends State<DmCard> {
           ListTile(
             //creates the top padding of every post on the home feed
             leading: Padding(
-              padding: const EdgeInsets.fromLTRB(3, 18, 0, 0),
+              padding: const EdgeInsets.fromLTRB(5, 0, 0, 0),
               child: CircleAvatar(
                 radius: 20,
                 backgroundColor: Colors.blue,
@@ -58,23 +58,24 @@ class _DmCardState extends State<DmCard> {
                     minimumSize: MaterialStateProperty.all(
                       const Size(0, 0),
                     ),
-                    padding: MaterialStateProperty.all(const EdgeInsets.all(0)),
+                    padding: MaterialStateProperty.all(const EdgeInsets.fromLTRB(0, 0, 10, 10)),
                     tapTargetSize: MaterialTapTargetSize.shrinkWrap,
                   ),
                 ),
                 // Text("        " + time),
               ],
             ),
-          
+
+          subtitle: Padding(
+            padding: const EdgeInsets.fromLTRB(0, 0, 10, 5),
+            child: Text(widget.lastDm,
+                style: const TextStyle(color: Colors.black, fontSize: 12)),
+          ),
             //creating a dropdownbutton with secondary options for the mode menu
             trailing: MenuButton(),
           ),
 
-          Padding(
-            padding: const EdgeInsets.fromLTRB(75, 0, 10, 10),
-            child: Text(widget.lastDm,
-                style: const TextStyle(color: Colors.black, fontSize: 12)),
-          ),
+          
         ],
       ),      
     );
