@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "458447359335",
+    "project_id": "uni-app-74ade",
+    "storage_bucket": "uni-app-74ade.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:458447359335:android:e03291592ae4c9e26173c2",
+        "android_client_info": {
+          "package_name": "com.example.uni"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "458447359335-83mkfcm3jv8m87n7bb5ugp201m93htee.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCFd3Hl_SU8qHwxtgaQWpC6JU7vQIibWoE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "458447359335-83mkfcm3jv8m87n7bb5ugp201m93htee.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
