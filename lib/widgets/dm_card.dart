@@ -22,7 +22,7 @@ class _DmCardState extends State<DmCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      color: Colors.black,
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.fromLTRB(0, 0.5, 0, 0.4),
       child: ListTile(
@@ -49,7 +49,7 @@ class _DmCardState extends State<DmCard> {
               child: Text(
                 widget.username,
                 style: const TextStyle(
-                    color: Colors.black,
+                    color: Colors.white,
                     fontSize: 14,
                     fontWeight: FontWeight.w600),
               ),
@@ -69,7 +69,7 @@ class _DmCardState extends State<DmCard> {
         subtitle: Padding(
           padding: const EdgeInsets.fromLTRB(0, 0, 10, 5),
           child: Text(widget.lastDm,
-              style: const TextStyle(color: Colors.black, fontSize: 12)),
+              style: const TextStyle(color: Colors.white, fontSize: 12)),
         ),
         //creating a dropdownbutton with secondary options for the mode menu
         trailing: MenuButton(),

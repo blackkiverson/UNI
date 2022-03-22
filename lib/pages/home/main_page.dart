@@ -4,6 +4,7 @@ import 'package:smifapp/pages/home/dm_page.dart';
 import 'package:smifapp/pages/home/fav_page.dart';
 import 'package:smifapp/pages/home/home_page.dart';
 import 'package:smifapp/pages/home/post_page.dart';
+import 'package:smifapp/pages/home/profile_drawer.dart';
 import 'package:smifapp/pages/home/search_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -14,6 +15,7 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
+  var scaffoldKey = GlobalKey<ScaffoldState>();
   List pages = const [HomePage(), SearchPage(), FavPage(), DmPage()];
   int currentindex = 0;
   void onTap(int index) {
@@ -25,14 +27,16 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
+      drawer: SideProfile(),
       body: pages[currentindex],
       backgroundColor: Colors.grey.shade500,
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         currentIndex: currentindex,
         selectedItemColor: Colors.blue.shade400,
-        unselectedItemColor: Colors.black,
-        backgroundColor: Colors.white,
+        unselectedItemColor: Colors.white,
+        backgroundColor: Colors.black,
         showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 30,
@@ -48,15 +52,18 @@ class _MainPageState extends State<MainPage> {
               label: "Message", icon: Icon(Icons.mail_outlined))
         ],
       ),
+      // drawer: SideProfile(),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.black,
         leading: Padding(
-          padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+          padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
           child: CircleAvatar(
             radius: 30,
             backgroundColor: Colors.blue,
-            child: IconButton(onPressed: () {}, icon: const Icon(Icons.person)),
+            child: IconButton(
+                onPressed: () {scaffoldKey.currentState?.openDrawer();},
+                icon: const Icon(Icons.person)),
             foregroundImage: const AssetImage("img/wpone.jpg"),
           ),
         ),
@@ -68,7 +75,7 @@ class _MainPageState extends State<MainPage> {
               icon: const Icon(
                 Icons.notifications_none,
                 size: 30,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
           ),

@@ -54,7 +54,7 @@ class _DmPageState extends State<DmPage> {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 0, 57, 15),
-          color: Colors.white,
+          color: Colors.black,
           child: Padding(
             padding: EdgeInsets.fromLTRB(55, 8, 0, 0),
             child: Container(
@@ -63,7 +63,7 @@ class _DmPageState extends State<DmPage> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue.shade100),
+                  color: Colors.grey.shade800),
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
                 child: TextField(

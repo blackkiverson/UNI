@@ -30,7 +30,7 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.white,
+      color: Colors.black,
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.fromLTRB(0, 1, 0, 0.4),
       child: Column(
@@ -58,7 +58,7 @@ class _PostCardState extends State<PostCard> {
                   child: Text(
                     widget.username,
                     style: const TextStyle(
-                        color: Colors.black,
+                        color: Colors.white,
                         fontSize: 16,
                         fontWeight: FontWeight.w600),
                   ),
@@ -78,7 +78,7 @@ class _PostCardState extends State<PostCard> {
             subtitle: Text(
               widget.postTag,
               style: const TextStyle(
-                  color: Colors.black,
+                  color: Colors.white,
                   fontStyle: FontStyle.italic,
                   fontWeight: FontWeight.w400,
                   fontSize: 12),
@@ -92,7 +92,7 @@ class _PostCardState extends State<PostCard> {
           Padding(
             padding: const EdgeInsets.fromLTRB(75, 0, 10, 20),
             child: Text(widget.postText,
-                style: const TextStyle(color: Colors.black)),
+                style: const TextStyle(color: Colors.white)),
           ),
           widget.postImage != ""&& widget.postImage != null
               ? Padding(
@@ -114,6 +114,7 @@ class _PostCardState extends State<PostCard> {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.mode_comment_outlined),
+                color: Colors.white,
               ),
 
               //LikeButton() widget
@@ -123,6 +124,7 @@ class _PostCardState extends State<PostCard> {
               IconButton(
                 onPressed: () {},
                 icon: const Icon(Icons.share_outlined),
+                color: Colors.white,
               ),
             ],
           ),

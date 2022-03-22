@@ -64,7 +64,7 @@ class _SearchPageState extends State<SearchPage> {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 0, 57, 15),
-          color: Colors.white,
+          color: Colors.black,
           child: Padding(
             padding: EdgeInsets.fromLTRB(55, 8, 0, 0),
             child: Container(
@@ -73,7 +73,7 @@ class _SearchPageState extends State<SearchPage> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.blue.shade100),
+                  color: Colors.grey.shade800),
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
                 child: TextField(
@@ -82,6 +82,7 @@ class _SearchPageState extends State<SearchPage> {
                     suffixIcon:
                         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
                     hintText: "Search",
+                    hintStyle: TextStyle(color: Colors.white)
                   ),
                 ),
               ),

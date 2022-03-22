@@ -22,7 +22,7 @@ class _LikeButtonState extends State<LikeButton> {
         );
       },
       icon: Icon(isSelected ? Icons.favorite : Icons.favorite_outline),
-      color: isSelected ? Colors.red : Colors.black,
+      color: isSelected ? Colors.red : Colors.white,
     );
   }
 }
