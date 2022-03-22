@@ -1,10 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smifapp/pages/dm_page.dart';
-import 'package:smifapp/pages/fav_page.dart';
-import 'package:smifapp/pages/home_page.dart';
-import 'package:smifapp/pages/post_page.dart';
-import 'package:smifapp/pages/search_page.dart';
+import 'package:smifapp/pages/home/dm_page.dart';
+import 'package:smifapp/pages/home/fav_page.dart';
+import 'package:smifapp/pages/home/home_page.dart';
+import 'package:smifapp/pages/home/post_page.dart';
+import 'package:smifapp/pages/home/search_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);
