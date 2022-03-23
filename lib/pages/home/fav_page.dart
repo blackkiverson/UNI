@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smifapp/widgets/post_card.dart';
+import 'package:uni/widgets/post_card.dart';
 
 class FavPage extends StatefulWidget {
   const FavPage({Key? key}) : super(key: key);

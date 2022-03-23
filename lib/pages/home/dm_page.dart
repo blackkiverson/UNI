@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smifapp/widgets/dm_card.dart';
+import 'package:uni/widgets/dm_card.dart';
 
 class DmPage extends StatefulWidget {
   const DmPage({ Key? key }) : super(key: key);
