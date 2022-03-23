@@ -1,8 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.smifapp">
    <application
-        android:label="smifapp"
-        android:icon="@mipmap/ic_launcher">
+        android:label="Uni"
+        android:icon="@mipmap/ic_launcher"
+        android:name="${applicationName}">
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"

@@ -17,7 +17,7 @@ class _MenuButtonState extends State<MenuButton> {
       itemBuilder: (context) => <PopupMenuEntry>[
         PopupMenuItem(
           child: ListTile(onTap: () {},
-            title: Text("Report Post", style: TextStyle(color: Colors.white),),
+            title: Text("Report Post", style: TextStyle(color: Color.fromARGB(255, 255, 255, 255)),),
             contentPadding:
                 EdgeInsets.symmetric(vertical: 0.0, horizontal: 2.0),
             dense: true,
