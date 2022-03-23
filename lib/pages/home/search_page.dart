@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:uni/widgets/post_card.dart';
 
 class SearchPage extends StatefulWidget {
