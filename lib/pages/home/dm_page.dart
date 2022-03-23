@@ -66,12 +66,14 @@ class _DmPageState extends State<DmPage> {
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
                 child: TextField(
+                  style: TextStyle(color: Colors.blue),
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     suffixIcon:
                         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
                     hintText: "Search for a people or groups",
-                    hintStyle: TextStyle(color: Colors.white)
+                    hintStyle: TextStyle(color: Colors.white),
+                    
                   ),
                 ),
               ),
