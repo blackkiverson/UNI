@@ -1,7 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:smifapp/pages/sign_up.dart';
-import 'main_page.dart';
+import 'package:uni/pages/authentication/sign_up.dart';
+import '../home/main_page.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -47,88 +46,6 @@ class _LogInState extends State<LogIn> {
                     ),
                   ),
                   const SizedBox(height: 150),
-
-                  // Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     const SizedBox(height: 10),
-                  //     const Text(
-                  //       "Full Name",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.normal),
-                  //     ),
-                  //     const SizedBox(height: 10),
-                  //     Container(
-                  //       alignment: Alignment.center,
-                  //       decoration: BoxDecoration(
-                  //         borderRadius: BorderRadius.circular(25),
-                  //         color: Colors.white,
-                  //         boxShadow: const [
-                  //           BoxShadow(
-                  //               color: Colors.black87,
-                  //               blurRadius: 6,
-                  //               offset: Offset(0, 2)),
-                  //         ],
-                  //       ),
-                  //       height: 50,
-                  //       width: 350,
-                  //       child: const TextField(
-                  //         keyboardType: TextInputType.name,
-                  //         style: TextStyle(color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           border: InputBorder.none,
-                  //           contentPadding: EdgeInsets.only(top: 14),
-                  //           prefixIcon: Icon(Icons.person),
-                  //           hintText: "Bella Davies",
-                  //           hintStyle: TextStyle(color: Colors.blueGrey),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-
-                  // Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     const SizedBox(height: 10),
-                  //     const Text(
-                  //       "University/College",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.normal),
-                  //     ),
-                  //     const SizedBox(height: 10),
-                  //     Container(
-                  //       alignment: Alignment.center,
-                  //       decoration: BoxDecoration(
-                  //         borderRadius: BorderRadius.circular(25),
-                  //         color: Colors.white,
-                  //         boxShadow: const [
-                  //           BoxShadow(
-                  //               color: Colors.black87,
-                  //               blurRadius: 6,
-                  //               offset: Offset(0, 2)),
-                  //         ],
-                  //       ),
-                  //       height: 50,
-                  //       width: 350,
-                  //       child: const TextField(
-                  //         keyboardType: TextInputType.name,
-                  //         style: TextStyle(color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           border: InputBorder.none,
-                  //           contentPadding: EdgeInsets.only(top: 14),
-                  //           prefixIcon: Icon(Icons.school),
-                  //           hintText: "American Unversity of Nigeria",
-                  //           hintStyle: TextStyle(color: Colors.blueGrey),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
 
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -216,48 +133,7 @@ class _LogInState extends State<LogIn> {
                       ),
                     ],
                   ),
-
-                  // Column(
-                  //   crossAxisAlignment: CrossAxisAlignment.start,
-                  //   children: [
-                  //     const SizedBox(height: 10),
-                  //     const Text(
-                  //       "Re-enter Password",
-                  //       style: TextStyle(
-                  //           color: Colors.white,
-                  //           fontSize: 16,
-                  //           fontWeight: FontWeight.normal),
-                  //     ),
-                  //     const SizedBox(height: 10),
-                  //     Container(
-                  //       alignment: Alignment.center,
-                  //       decoration: BoxDecoration(
-                  //         borderRadius: BorderRadius.circular(25),
-                  //         color: Colors.white,
-                  //         boxShadow: const [
-                  //           BoxShadow(
-                  //               color: Colors.black87,
-                  //               blurRadius: 6,
-                  //               offset: Offset(0, 2)),
-                  //         ],
-                  //       ),
-                  //       height: 50,
-                  //       width: 350,
-                  //       child: const TextField(
-                  //         keyboardType: TextInputType.visiblePassword,
-                  //         style: TextStyle(color: Colors.black),
-                  //         decoration: InputDecoration(
-                  //           border: InputBorder.none,
-                  //           contentPadding: EdgeInsets.only(top: 14),
-                  //           prefixIcon: Icon(Icons.vpn_key),
-                  //           hintText: "Re-enter Password",
-                  //           hintStyle: TextStyle(color: Colors.blueGrey),
-                  //         ),
-                  //       ),
-                  //     ),
-                  //   ],
-                  // ),
-
+                  
                   const SizedBox(
                     height: 50
                   ),
