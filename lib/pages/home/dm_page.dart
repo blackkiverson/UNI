@@ -53,7 +53,7 @@ class _DmPageState extends State<DmPage> {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 0, 57, 15),
-          color: Color.fromARGB(255, 19, 19, 19),
+          color: Color.fromARGB(255, 12, 12, 12),
           child: Padding(
             padding: EdgeInsets.fromLTRB(55, 8, 0, 0),
             child: Container(
@@ -62,7 +62,7 @@ class _DmPageState extends State<DmPage> {
               alignment: Alignment.center,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color: Colors.grey.shade800),
+                  color: Color.fromARGB(255, 49, 52, 53)),
               child: Padding(
                 padding: EdgeInsets.fromLTRB(20, 0, 2, 0),
                 child: TextField(
@@ -72,7 +72,7 @@ class _DmPageState extends State<DmPage> {
                     suffixIcon:
                         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
                     hintText: "Search for a people or groups",
-                    hintStyle: TextStyle(color: Colors.white),
+                    hintStyle: TextStyle(color: Color.fromARGB(255, 180, 180, 180)),
                     
                   ),
                 ),

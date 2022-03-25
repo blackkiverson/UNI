@@ -21,7 +21,7 @@ class _DmCardState extends State<DmCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.black,
+      color: Color.fromARGB(255, 12, 12, 12),
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.fromLTRB(0, 0.5, 0, 0.4),
       child: ListTile(

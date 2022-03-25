@@ -62,7 +62,7 @@ class _SearchPageState extends State<SearchPage> {
         ),
         Container(
           padding: EdgeInsets.fromLTRB(0, 0, 57, 15),
-          color: Colors.black,
+          color: Color.fromARGB(255, 12, 12, 12),
           child: Padding(
             padding: EdgeInsets.fromLTRB(55, 8, 0, 0),
             child: Container(

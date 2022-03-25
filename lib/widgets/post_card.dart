@@ -29,7 +29,7 @@ class _PostCardState extends State<PostCard> {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Colors.black,
+      color: Color.fromARGB(255, 12, 12, 12),
       clipBehavior: Clip.antiAlias,
       margin: const EdgeInsets.fromLTRB(0, 1, 0, 0.4),
       child: Column(
@@ -95,7 +95,7 @@ class _PostCardState extends State<PostCard> {
           ),
           widget.postImage != ""&& widget.postImage != null
               ? Padding(
-                  padding: const EdgeInsets.fromLTRB(75, 0, 20, 0),
+                  padding: const EdgeInsets.fromLTRB(75, 0, 20, 10),
                   child: Image(
                     image: AssetImage(widget.postImage!),
                     fit: BoxFit.cover,

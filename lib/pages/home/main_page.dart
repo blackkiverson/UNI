@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uni/pages/home/dm_page.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/home_page.dart';
+import 'package:uni/pages/home/notification_page.dart';
 import 'package:uni/pages/home/post_page.dart';
 import 'package:uni/pages/home/profile_drawer.dart';
 import 'package:uni/pages/home/search_page.dart';
@@ -29,13 +30,13 @@ class _MainPageState extends State<MainPage> {
       key: scaffoldKey,
       drawer: SideProfile(),
       body: pages[currentindex],
-      backgroundColor: Colors.grey.shade500,
+      backgroundColor: Color.fromARGB(255, 70, 70, 70),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         currentIndex: currentindex,
         selectedItemColor: Colors.blue.shade400,
         unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 30,
@@ -51,17 +52,18 @@ class _MainPageState extends State<MainPage> {
               label: "Message", icon: Icon(Icons.mail_outlined))
         ],
       ),
-      // drawer: SideProfile(),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
           child: CircleAvatar(
             radius: 30,
             backgroundColor: Colors.blue,
             child: IconButton(
-                onPressed: () {scaffoldKey.currentState?.openDrawer();},
+                onPressed: () {
+                  scaffoldKey.currentState?.openDrawer();
+                },
                 icon: const Icon(Icons.person)),
             foregroundImage: const AssetImage("img/wpone.jpg"),
           ),
@@ -70,7 +72,13 @@ class _MainPageState extends State<MainPage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AppNotification(),
+                    ));
+              },
               icon: const Icon(
                 Icons.notifications_none,
                 size: 30,
