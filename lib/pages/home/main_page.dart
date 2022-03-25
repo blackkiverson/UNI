@@ -29,13 +29,13 @@ class _MainPageState extends State<MainPage> {
       key: scaffoldKey,
       drawer: SideProfile(),
       body: pages[currentindex],
-      backgroundColor: Colors.grey.shade500,
+      backgroundColor: Color.fromARGB(255, 70, 70, 70),
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTap,
         currentIndex: currentindex,
         selectedItemColor: Colors.blue.shade400,
         unselectedItemColor: Colors.white,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
         showSelectedLabels: false,
         showUnselectedLabels: false,
         iconSize: 30,
@@ -51,10 +51,9 @@ class _MainPageState extends State<MainPage> {
               label: "Message", icon: Icon(Icons.mail_outlined))
         ],
       ),
-      // drawer: SideProfile(),
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.black,
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
         leading: Padding(
           padding: const EdgeInsets.fromLTRB(20, 0, 0, 0),
           child: CircleAvatar(

@@ -17,20 +17,18 @@ class _PostPageState extends State<PostPage> {
       //Creating the top elements for page
       appBar: AppBar(
         elevation: 1,
-        backgroundColor: Colors.white,
-        leadingWidth: 0,
-        title: Align(
-          alignment: Alignment.centerLeft,
-          child: TextButton(
-            onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MainPage(),
-                  ));
-            },
-            child: Text("Cancel", style: TextStyle(color: Colors.black)),
-          ),
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
+        automaticallyImplyLeading: false,
+        title: TextButton(
+          onPressed: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const MainPage(),
+                ));
+          },
+          child: Text("Cancel",
+              style: TextStyle(color: Colors.white)),
         ),
         actions: [
           Align(
@@ -61,22 +59,25 @@ class _PostPageState extends State<PostPage> {
               height: 655,
               alignment: Alignment.topCenter,
               decoration: BoxDecoration(
-                color: Colors.white,
+                color: Color.fromARGB(255, 12, 12, 12),
               ),
               child: TextField(
+                style: TextStyle(color: Colors.white),
                 minLines: 1,
                 maxLines: null,
                 decoration: InputDecoration(
-                  border: InputBorder.none,
-                  contentPadding: EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
-                  hintText: "Enter Text",
-                ),
+                    border: InputBorder.none,
+                    contentPadding:
+                        EdgeInsetsDirectional.fromSTEB(20, 10, 20, 0),
+                    hintText: "Enter Text",
+                    hintStyle:
+                        TextStyle(color: Color.fromARGB(255, 95, 95, 95))),
               ),
             ),
             Container(
               // constraints: BoxConstraints.expand(height: 60),
               height: 60,
-              decoration: BoxDecoration(color: Colors.white),
+              decoration: BoxDecoration(color: Color.fromARGB(255, 12, 12, 12)),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
