@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:uni/pages/home/dm_page.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/home_page.dart';
+import 'package:uni/pages/home/notification_page.dart';
 import 'package:uni/pages/home/post_page.dart';
 import 'package:uni/pages/home/profile_drawer.dart';
 import 'package:uni/pages/home/search_page.dart';
@@ -60,7 +61,9 @@ class _MainPageState extends State<MainPage> {
             radius: 30,
             backgroundColor: Colors.blue,
             child: IconButton(
-                onPressed: () {scaffoldKey.currentState?.openDrawer();},
+                onPressed: () {
+                  scaffoldKey.currentState?.openDrawer();
+                },
                 icon: const Icon(Icons.person)),
             foregroundImage: const AssetImage("img/wpone.jpg"),
           ),
@@ -69,7 +72,13 @@ class _MainPageState extends State<MainPage> {
           Padding(
             padding: const EdgeInsets.fromLTRB(0, 0, 10, 0),
             child: IconButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const AppNotification(),
+                    ));
+              },
               icon: const Icon(
                 Icons.notifications_none,
                 size: 30,
