@@ -78,7 +78,7 @@ class _SearchPageState extends State<SearchPage> {
                   decoration: InputDecoration(
                     border: InputBorder.none,
                     suffixIcon:
-                        IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+                        IconButton(onPressed: () {}, icon: Icon(Icons.search), color: Colors.blue,),
                     hintText: "Search",
                     hintStyle: TextStyle(color: Colors.white)
                   ),

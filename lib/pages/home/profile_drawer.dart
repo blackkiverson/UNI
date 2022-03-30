@@ -36,11 +36,13 @@ class _SideProfileState extends State<SideProfile> {
                                 builder: (context) => const UserProfile(),
                               ));
                         },
+                        
                         icon: const Icon(
                           Icons.person,
                           size: 30,
                         ),
                       ),
+                      foregroundImage: AssetImage("img/male.jpg"),
                       // foregroundImage: const AssetImage("img/wpone.jpg"),
                     ),
                   ),
@@ -116,7 +118,7 @@ class _SideProfileState extends State<SideProfile> {
             // tileColor: Color.fromARGB(255, 42, 61, 77),
             leading: Icon(Icons.lens_blur_outlined),
             title: Text(
-              "Discover",
+              "Discover Topics",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -152,6 +154,18 @@ class _SideProfileState extends State<SideProfile> {
             leading: Icon(Icons.settings),
             title: Text(
               "Settings and Privacy",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w400),
+            ),
+          ),
+          ListTile(
+            iconColor: Colors.white,
+            onTap: () {},
+            leading: Icon(Icons.help_outline_rounded),
+            title: Text(
+              "Help Center",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
