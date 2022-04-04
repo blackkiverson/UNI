@@ -15,7 +15,7 @@ class _ProfileTopicsState extends State<ProfileTopics> {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 30, right: 175),
+              padding: const EdgeInsets.only(left: 30, right: 180),
               child: Text("Favourite Topics", style: TextStyle(color: Colors.white)),
             ),
             IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
@@ -23,7 +23,7 @@ class _ProfileTopicsState extends State<ProfileTopics> {
           ],
         ),
         Divider(
-          thickness: 0.7,
+          thickness: 0.1,
           color: Colors.white,
         )
       ],

@@ -15,7 +15,7 @@ class _ProfileSkillState extends State<ProfileSkill> {
         Row(
           children: [
             Padding(
-              padding: const EdgeInsets.only(left: 30, right: 245),
+              padding: const EdgeInsets.only(left: 30, right: 240),
               child: Text("Skills", style: TextStyle(color: Colors.white)),
             ),
             IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),

@@ -172,8 +172,8 @@ class _SideProfileState extends State<SideProfile> {
                   fontWeight: FontWeight.w400),
             ),
           ),
-          SizedBox(height: 320),
-          ListTile(
+          SizedBox(
+          child: ListTile(
             iconColor: Colors.white,
             onTap: () {},
             leading: Icon(Icons.logout_rounded),
@@ -185,7 +185,8 @@ class _SideProfileState extends State<SideProfile> {
                   fontWeight: FontWeight.w400),
             ),
           ),
-        ],
+                
+          )],
       ),
     );
   }

@@ -87,16 +87,34 @@ class _UserProfileState extends State<UserProfile> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 60,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    textBaseline: TextBaseline.alphabetic,
-                    children: [
-                      TextButton(onPressed: () {}, child: Text("Followers")),
-                      TextButton(onPressed: () {}, child: Text("Following"))
-                    ],
+                Padding(
+                  padding: const EdgeInsets.only(top: 10),
+                  child: SizedBox(
+                    height: 65,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Column(
+                          children: [
+                            TextButton(onPressed: () {},
+                              child: Text("34",
+                              style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 180, 180, 180)),
+                            )),
+                            Text("Followers", style: TextStyle(color: Colors.blue),)
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            TextButton(onPressed: () {},
+                              child: Text("34",
+                              style: TextStyle(fontSize: 20, color: Color.fromARGB(255, 180, 180, 180)),
+                            )),
+                            Text("Following", style: TextStyle(color: Colors.blue),)
+                          ],
+                        ),
+                      ],
+                    ),
                   ),
                 ),
 
@@ -129,7 +147,7 @@ class _UserProfileState extends State<UserProfile> {
                 ),
 
                 Divider(
-                  thickness: 0.5,
+                  thickness: 0.1,
                   height: 10,
                   color: Colors.white,
                 ),
@@ -145,7 +163,6 @@ class _UserProfileState extends State<UserProfile> {
                 ProfileLang(),
 
                 ProfileTopics(), //change all tags to topics
-
               ],
             ),
           ),

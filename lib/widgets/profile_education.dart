@@ -23,7 +23,7 @@ class _ProfileEducationState extends State<ProfileEducation> {
           ],
         ),
         Divider(
-          thickness: 0.65,
+          thickness: 0.1,
           color: Colors.white,
         )
       ],
