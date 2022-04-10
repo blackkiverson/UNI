@@ -72,8 +72,7 @@ class _DmPageState extends State<DmPage> {
                     suffixIcon:
                         IconButton(onPressed: () {}, icon: Icon(Icons.search)),
                     hintText: "Search for a people or groups",
-                    hintStyle: TextStyle(color: Color.fromARGB(255, 180, 180, 180)),
-                    
+                    hintStyle: TextStyle(color: Color.fromARGB(255, 180, 180, 180)),                   
                   ),
                 ),
               ),

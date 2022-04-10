@@ -65,7 +65,7 @@ class _MainPageState extends State<MainPage> {
                   scaffoldKey.currentState?.openDrawer();
                 },
                 icon: const Icon(Icons.person)),
-            foregroundImage: const AssetImage("img/wpone.jpg"),
+            foregroundImage: const AssetImage("img/male.jpg"),
           ),
         ),
         actions: [
