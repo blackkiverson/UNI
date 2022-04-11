@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni/pages/home/discover_page.dart';
+import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
 import 'package:uni/pages/home/setting_page.dart';
 
@@ -111,14 +111,14 @@ class _SideProfileState extends State<SideProfile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const TagDiscover(),
+                    builder: (context) => const FavPage(),
                   ));
             },
             iconColor: Colors.white,
             // tileColor: Color.fromARGB(255, 42, 61, 77),
-            leading: Icon(Icons.lens_blur_outlined),
+            leading: Icon(Icons.bookmark_border_outlined),
             title: Text(
-              "Discover Topics",
+              "Bookmarks",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,

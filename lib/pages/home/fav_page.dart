@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/widgets/post_card.dart';
 
@@ -42,18 +41,23 @@ class _FavPageState extends State<FavPage> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-        // physics: const AlwaysScrollableScrollPhysics(),
-        scrollDirection: Axis.vertical,
-        children: mockData //mockData to generate a dynamic User feed
-            .map((item) => PostCard(
-                  avatarImage: item["profile_image"]!,
-                  username: item["username"]!,
-                  postTag: item["tag"]!,
-                  postText: item["post"]!,
-                  postImage: item["post_image"]!,
-                  postVideo: item["post_video"],
-                ))
-            .toList());
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 12, 12, 12),
+      ),
+      body: ListView(
+          // physics: const AlwaysScrollableScrollPhysics(),
+          scrollDirection: Axis.vertical,
+          children: mockData //mockData to generate a dynamic User feed
+              .map((item) => PostCard(
+                    avatarImage: item["profile_image"]!,
+                    username: item["username"]!,
+                    postTag: item["tag"]!,
+                    postText: item["post"]!,
+                    postImage: item["post_image"]!,
+                    postVideo: item["post_video"],
+                  ))
+              .toList()),
+    );
   }
 }

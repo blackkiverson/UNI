@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:uni/pages/home/discover_page.dart';
 import 'package:uni/pages/home/dm_page.dart';
-import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/home_page.dart';
 import 'package:uni/pages/home/notification_page.dart';
 import 'package:uni/pages/home/post_page.dart';
@@ -16,7 +16,7 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   var scaffoldKey = GlobalKey<ScaffoldState>();
-  List pages = const [HomePage(), SearchPage(), FavPage(), DmPage()];
+  List pages = const [HomePage(), SearchPage(), TagDiscover(), DmPage()];
   int currentindex = 0;
   void onTap(int index) {
     setState(() {
@@ -44,12 +44,13 @@ class _MainPageState extends State<MainPage> {
         type: BottomNavigationBarType.fixed,
         items: const [
           BottomNavigationBarItem(
-              label: "Home", icon: Icon(Icons.home_outlined)),
-          BottomNavigationBarItem(label: "Search", icon: Icon(Icons.search)),
+            label: "Home", icon: Icon(Icons.home_outlined)),
           BottomNavigationBarItem(
-              label: "Favourite", icon: Icon(Icons.bookmark_outline)),
+            label: "Search", icon: Icon(Icons.search)),
           BottomNavigationBarItem(
-              label: "Message", icon: Icon(Icons.mail_outlined))
+            label: "Topics", icon: Icon(Icons.lens_blur_rounded)),
+          BottomNavigationBarItem(
+            label: "Message", icon: Icon(Icons.mail_outlined))
         ],
       ),
       appBar: AppBar(
