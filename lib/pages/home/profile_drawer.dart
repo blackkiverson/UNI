@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni/pages/authentication/auth.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
 import 'package:uni/pages/home/setting_page.dart';
@@ -11,6 +12,9 @@ class SideProfile extends StatefulWidget {
 }
 
 class _SideProfileState extends State<SideProfile> {
+
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -175,7 +179,9 @@ class _SideProfileState extends State<SideProfile> {
           SizedBox(
           child: ListTile(
             iconColor: Colors.white,
-            onTap: () {},
+            onTap: () async {
+              // await _auth.signOut();
+            },
             leading: Icon(Icons.logout_rounded),
             title: Text(
               "Log Out",

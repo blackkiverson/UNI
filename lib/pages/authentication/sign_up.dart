@@ -1,17 +1,50 @@
+// ignore_for_file: avoid_print
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/pages/authentication/log_in.dart';
 import 'package:uni/pages/home/main_page.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
+  // final Function toggleView;
+  // SignUp({this.toggleView});
 
   @override
   _SignUpState createState() => _SignUpState();
 }
 
 class _SignUpState extends State<SignUp> {
-  final _formkey = GlobalKey();
+
+  final _formkey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
+  // final main _auth = AuthService();
+
+  String email = '';
+  String password = '';
+
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+  late final TextEditingController _confirmpassword;
+
+   
+
+  @override
+  void initState(){
+    _email = TextEditingController();
+    _password = TextEditingController();
+    _confirmpassword = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose(){
+    _email.dispose();
+    _password.dispose();
+    _confirmpassword.dispose();
+    super.dispose();
+  }
+  
 
   @override
   Widget build(BuildContext context) {
@@ -156,7 +189,8 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
                             color: Colors.black,
@@ -203,6 +237,7 @@ class _SignUpState extends State<SignUp> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          controller: _password,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -244,6 +279,7 @@ class _SignUpState extends State<SignUp> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          controller: _confirmpassword,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -262,14 +298,22 @@ class _SignUpState extends State<SignUp> {
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => 
-                              const MainPage(),
-                            )
-                          );
+                        onPressed: () async {
+                          try {
+                            final credential = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+                              email: email,
+                              password: password,
+                            );
+                            print(credential);
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'weak-password') {
+                              print('The password provided is too weak.');
+                            } else if (e.code == 'email-already-in-use') {
+                              print('The account already exists for that email.');
+                            }
+                          } catch (e) {
+                            print(e);
+                          }
                         },
                         child: const Text("SIGN UP",
                             style: TextStyle(
