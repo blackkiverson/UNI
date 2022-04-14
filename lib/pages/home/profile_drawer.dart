@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/pages/authentication/auth.dart';
 import 'package:uni/pages/home/fav_page.dart';
@@ -180,7 +181,7 @@ class _SideProfileState extends State<SideProfile> {
           child: ListTile(
             iconColor: Colors.white,
             onTap: () async {
-              // await _auth.signOut();
+              await FirebaseAuth.instance.signOut();
             },
             leading: Icon(Icons.logout_rounded),
             title: Text(

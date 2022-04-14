@@ -1,3 +1,6 @@
+// ignore_for_file: avoid_print, unused_local_variable
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/pages/authentication/sign_up.dart';
 import '../home/main_page.dart';
@@ -13,6 +16,26 @@ class _LogInState extends State<LogIn> {
   final _formkey = GlobalKey();
   bool isPasswordVisible = false;
 
+  String email = '';
+  String password = '';
+
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
@@ -27,7 +50,7 @@ class _LogInState extends State<LogIn> {
               fit: BoxFit.cover,
             ),
           ),
-        child: Form(
+          child: Form(
             key: _formkey,
             child: SingleChildScrollView(
               child: Column(
@@ -73,7 +96,8 @@ class _LogInState extends State<LogIn> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
                             color: Colors.black,
@@ -120,6 +144,7 @@ class _LogInState extends State<LogIn> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          controller: _password,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -133,33 +158,33 @@ class _LogInState extends State<LogIn> {
                       ),
                     ],
                   ),
-                  
-                  const SizedBox(
-                    height: 50
-                  ),
-                  
+
+                  const SizedBox(height: 50),
+
                   TextButton(
                     onPressed: () {},
                     child: const Text(
                       "Forgot Password?",
-                      style: TextStyle(
-                        color: Colors.blue
-                      ),
-                    ),                    
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ),
 
                   const SizedBox(height: 150),
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => 
-                              const MainPage(),
-                            )
-                          );
+                        onPressed: () async {
+                          try {
+                            final credential = await FirebaseAuth.instance
+                                .signInWithEmailAndPassword(
+                                    email: email, password: password);
+                          } on FirebaseAuthException catch (e) {
+                            if (e.code == 'user-not-found') {
+                              print('No user found for that email.');
+                            } else if (e.code == 'wrong-password') {
+                              print('Wrong password provided for that user.');
+                            }
+                          }
                         },
                         child: const Text("LOG IN",
                             style: TextStyle(
@@ -167,15 +192,14 @@ class _LogInState extends State<LogIn> {
                             )),
                       )
                     ],
-                  ),                  
+                  ),
 
                   TextButton(
                     onPressed: () {
                       Navigator.push(
-                        context, 
+                        context,
                         MaterialPageRoute(
-                          builder: (context) => 
-                            const SignUp(),
+                          builder: (context) => const SignUp(),
                         ),
                       );
                     },
