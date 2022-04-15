@@ -46,11 +46,6 @@ class _WelcomePageState extends State<WelcomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text(".Smif"),
-      //   backgroundColor: Color(0xFF490B2F),
-      //   centerTitle: true,
-      // ),
       body: PageView.builder(
         scrollDirection: Axis.horizontal,
         itemCount: images.length,
@@ -95,10 +90,6 @@ class _WelcomePageState extends State<WelcomePage> {
                           size: 16,
                         ),
                       ),
-                      // SizedBox(
-                      //   width: 200,
-                      //   height: 450,
-                      //   ),
                       SizedBox(
                         width: MediaQuery.of(context).size.width - 40,
                         height: MediaQuery.of(context).size.height - (300),
@@ -121,7 +112,6 @@ class _WelcomePageState extends State<WelcomePage> {
                                               );
                                             },
                                             child: const Text(
-                                              //"> > >",
                                               "NEXT",
                                               style: TextStyle(
                                                   color: Colors.white),
