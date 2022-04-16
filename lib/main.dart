@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'pages/authentication/welcome_page.dart';
+import 'package:provider/provider.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -18,9 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     //return StreamProvider.value(value: AuthService().user,child:MaterialApp(...))
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: const WelcomePage()
+    return MultiProvider(
+      providers: [
+        
+       ]
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: const WelcomePage()
+      ),
     );
   }
 }

@@ -1,7 +1,6 @@
 class User {
-
   final String uid;
+  final String? email;
 
-  User({ required this.uid });
-
+  User(this.uid, this.email);
 }

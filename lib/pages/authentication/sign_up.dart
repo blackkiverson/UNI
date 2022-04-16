@@ -17,7 +17,6 @@ class _SignUpState extends State<SignUp> {
 
   final _formkey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
-  // final main _auth = AuthService();
 
   String email = '';
   String password = '';
