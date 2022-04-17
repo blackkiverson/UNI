@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uni/pages/authentication/sign_up.dart';
+import 'package:uni/pages/authenticate/sign_up.dart';
 import 'package:uni/widgets/app_large_text.dart';
 import 'package:uni/widgets/app_text.dart';
 

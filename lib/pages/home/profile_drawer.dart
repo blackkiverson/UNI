@@ -1,9 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uni/pages/authentication/auth.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
 import 'package:uni/pages/home/setting_page.dart';
+import 'package:uni/pages/services/auth.dart';
 
 class SideProfile extends StatefulWidget {
   const SideProfile({Key? key}) : super(key: key);
@@ -181,7 +180,7 @@ class _SideProfileState extends State<SideProfile> {
           child: ListTile(
             iconColor: Colors.white,
             onTap: () async {
-              await FirebaseAuth.instance.signOut();
+              await _auth.signOut();
             },
             leading: Icon(Icons.logout_rounded),
             title: Text(

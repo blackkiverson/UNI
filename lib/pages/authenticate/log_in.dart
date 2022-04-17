@@ -1,8 +1,8 @@
 // ignore_for_file: avoid_print, unused_local_variable
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uni/pages/authentication/sign_up.dart';
+import 'package:uni/pages/authenticate/sign_up.dart';
+import 'package:uni/pages/services/auth.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -14,6 +14,8 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final _formkey = GlobalKey();
   bool isPasswordVisible = false;
+
+  final AuthService _auth = AuthService();
 
   String email = '';
   String password = '';
@@ -96,6 +98,9 @@ class _LogInState extends State<LogIn> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          onChanged: ((value) {
+                            setState(() => email = value);
+                          }),
                           controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
@@ -143,6 +148,9 @@ class _LogInState extends State<LogIn> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          onChanged: ((value) {
+                            setState(() => password = value);
+                          }),
                           controller: _password,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
@@ -172,23 +180,10 @@ class _LogInState extends State<LogIn> {
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: ()
-                            async {
-                              try {
-                                final credential = await FirebaseAuth.instance
-                                    .signInWithEmailAndPassword(
-                                        email: email, password: password);
-                              } on FirebaseAuthException catch (e) {
-                                if (e.code == 'user-not-found') {
-                                  print('No user found for that email.');
-                                } else if (e.code == 'wrong-password') {
-                                  print('Wrong password provided for that user.');
-                                }
-                              }
-                            },
-                        //     async {
-                        //   await FirebaseAuth.instance.signOut();
-                        // },
+                        onPressed: () async {
+                          print(email);
+                          print(password);
+                        },
                         child: const Text("LOG IN",
                             style: TextStyle(
                               color: Colors.white,
