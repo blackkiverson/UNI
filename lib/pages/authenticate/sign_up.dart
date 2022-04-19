@@ -12,7 +12,6 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-
   final AuthService _auth = AuthService();
 
   final _formkey = GlobalKey<FormState>();
@@ -31,10 +30,8 @@ class _SignUpState extends State<SignUp> {
   late final TextEditingController _password;
   late final TextEditingController _confirmpassword;
 
-   
-
   @override
-  void initState(){
+  void initState() {
     _fullname = TextEditingController();
     _college = TextEditingController();
     _email = TextEditingController();
@@ -44,7 +41,7 @@ class _SignUpState extends State<SignUp> {
   }
 
   @override
-  void dispose(){
+  void dispose() {
     _fullname.dispose();
     _college.dispose();
     _email.dispose();
@@ -52,7 +49,6 @@ class _SignUpState extends State<SignUp> {
     _confirmpassword.dispose();
     super.dispose();
   }
-  
 
   @override
   Widget build(BuildContext context) {
@@ -206,7 +202,6 @@ class _SignUpState extends State<SignUp> {
                         height: 50,
                         width: 350,
                         child: TextField(
-
                           //validate the email to college email
 
                           onChanged: (value) {
@@ -258,7 +253,7 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: TextField(                          
+                        child: TextField(
                           // validate: (value) => value.length < 6 ? null,
                           onChanged: (value) {
                             setState(() => password = value);
@@ -328,10 +323,15 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          if (_formkey.currentState!.validate()){
-                            dynamic result = await _auth.registerWithEmailAndPassword(email, password);
-                            if(result == null) {
-                              setState(() => error = 'Please supply a valid email');
+                          if (_formkey.currentState!.validate()) {
+                            if (_password.text == _confirmpassword.text) {
+                              dynamic result =
+                                  await _auth.registerWithEmailAndPassword(
+                                      email, password, fullname);
+                              if (result == null) {
+                                setState(() =>
+                                    error = 'Please supply a valid email');
+                              }
                             }
                           }
                         },
@@ -347,10 +347,9 @@ class _SignUpState extends State<SignUp> {
                   TextButton(
                     onPressed: () {
                       Navigator.push(
-                        context, 
+                        context,
                         MaterialPageRoute(
-                          builder: (context) => 
-                            const LogIn(),
+                          builder: (context) => const LogIn(),
                         ),
                       );
                     },

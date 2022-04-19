@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_print, unused_local_variable
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/pages/authenticate/sign_up.dart';
+import 'package:uni/pages/home/main_page.dart';
 import 'package:uni/pages/services/auth.dart';
 
 class LogIn extends StatefulWidget {
@@ -35,6 +37,12 @@ class _LogInState extends State<LogIn> {
     _email.dispose();
     _password.dispose();
     super.dispose();
+  }
+
+  Future signIn() async {
+    final user =
+        await AuthService().signInWithEmailAndPassword(email, password);
+    return user;
   }
 
   @override
@@ -181,8 +189,18 @@ class _LogInState extends State<LogIn> {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          print(email);
-                          print(password);
+                          await signIn().then((user) => {
+                                if (user.uid != null)
+                                  {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: (BuildContext context) =>
+                                                const MainPage()))
+                                  } else {
+                                    print("User does not exist")
+                                  }
+                              });
                         },
                         child: const Text("LOG IN",
                             style: TextStyle(

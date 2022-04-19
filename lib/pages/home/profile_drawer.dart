@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni/pages/authenticate/log_in.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
 import 'package:uni/pages/home/setting_page.dart';
@@ -12,7 +13,6 @@ class SideProfile extends StatefulWidget {
 }
 
 class _SideProfileState extends State<SideProfile> {
-
   final AuthService _auth = AuthService();
 
   @override
@@ -40,7 +40,6 @@ class _SideProfileState extends State<SideProfile> {
                                 builder: (context) => const UserProfile(),
                               ));
                         },
-                        
                         icon: const Icon(
                           Icons.person,
                           size: 30,
@@ -177,22 +176,29 @@ class _SideProfileState extends State<SideProfile> {
             ),
           ),
           SizedBox(
-          child: ListTile(
-            iconColor: Colors.white,
-            onTap: () async {
-              await _auth.signOut();
-            },
-            leading: Icon(Icons.logout_rounded),
-            title: Text(
-              "Log Out",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400),
+            child: ListTile(
+              iconColor: Colors.white,
+              onTap: () async {
+                await _auth.signOut().then(
+                      ((value) => Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => const LogIn(),
+                            ),
+                          )),
+                    );
+              },
+              leading: Icon(Icons.logout_rounded),
+              title: Text(
+                "Log Out",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
-          ),
-                
-          )],
+          )
+        ],
       ),
     );
   }
