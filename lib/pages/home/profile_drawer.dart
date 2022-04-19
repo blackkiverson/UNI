@@ -1,4 +1,6 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uni/models/user.dart';
 import 'package:uni/pages/authenticate/log_in.dart';
 import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
@@ -17,6 +19,10 @@ class _SideProfileState extends State<SideProfile> {
 
   @override
   Widget build(BuildContext context) {
+    // setState(() {
+      final user = FirebaseAuth.instance.currentUser;
+    // });
+
     return Drawer(
       backgroundColor: Color.fromARGB(255, 1, 21, 37),
       child: ListView(
@@ -63,7 +69,7 @@ class _SideProfileState extends State<SideProfile> {
                             ));
                       },
                       child: Text(
-                        "Samuel Onyebuchi-Igbokwe",
+                        user != null ? user.displayName.toString() : '',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,

@@ -68,4 +68,9 @@ class AuthService {
       return null;
     }
   }
+
+  Future getUser() async {
+   var user = FirebaseAuth.instance.currentUser;
+   return user;
+  }
 }
