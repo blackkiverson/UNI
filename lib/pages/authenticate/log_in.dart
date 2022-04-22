@@ -1,7 +1,7 @@
-// ignore_for_file: avoid_print, unused_local_variable
+// ignore_for_file: avoid_print, unused_local_variable, unused_field
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uni/pages/authenticate/emailverification_page.dart';
 import 'package:uni/pages/authenticate/sign_up.dart';
 import 'package:uni/pages/home/main_page.dart';
 import 'package:uni/pages/services/auth.dart';
@@ -177,7 +177,13 @@ class _LogInState extends State<LogIn> {
                   const SizedBox(height: 50),
 
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const EmailVerification()));
+                    },
                     child: const Text(
                       "Forgot Password?",
                       style: TextStyle(color: Colors.blue),
@@ -197,9 +203,9 @@ class _LogInState extends State<LogIn> {
                                         MaterialPageRoute(
                                             builder: (BuildContext context) =>
                                                 const MainPage()))
-                                  } else {
-                                    print("User does not exist")
                                   }
+                                else
+                                  {print("User does not exist")}
                               });
                         },
                         child: const Text("LOG IN",

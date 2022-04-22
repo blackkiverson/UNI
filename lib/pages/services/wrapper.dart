@@ -2,10 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:uni/models/user.dart';
 import 'package:uni/pages/authenticate/sign_up.dart';
-import 'package:uni/pages/home/home_page.dart';
 import 'package:uni/pages/home/main_page.dart';
 
 // ignore: use_key_in_widget_constructors
