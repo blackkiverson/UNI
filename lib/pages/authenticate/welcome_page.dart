@@ -67,6 +67,7 @@ class _WelcomePageState extends State<WelcomePage> {
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      // AppLogo(index == 0),
                       AppLargeText(
                           text: (index == 1
                               ? "Express It"

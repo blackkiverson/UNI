@@ -6,6 +6,8 @@ import 'package:uni/pages/authenticate/sign_up.dart';
 import 'package:uni/pages/home/main_page.dart';
 import 'package:uni/pages/services/auth.dart';
 
+import '../../widgets/loading_screen.dart';
+
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
 
@@ -16,6 +18,7 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final _formkey = GlobalKey();
   bool isPasswordVisible = false;
+  bool loading = false;
 
   final AuthService _auth = AuthService();
 
@@ -48,7 +51,9 @@ class _LogInState extends State<LogIn> {
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return Scaffold(
+    return 
+    loading ? LoadingScreen() : 
+    Scaffold(
       body: SafeArea(
         child: Container(
           height: double.maxFinite,
@@ -195,18 +200,24 @@ class _LogInState extends State<LogIn> {
                     children: [
                       ElevatedButton(
                         onPressed: () async {
-                          await signIn().then((user) => {
-                                if (user.uid != null)
-                                  {
-                                    Navigator.push(
-                                        context,
-                                        MaterialPageRoute(
-                                            builder: (BuildContext context) =>
-                                                const MainPage()))
-                                  }
-                                else
-                                  {print("User does not exist")}
-                              });
+                          await signIn().then(
+                            (user) => {
+                              if (user.uid != null)
+                                {
+                                  setState(() => loading = true),
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const MainPage()))
+                                }
+                              else
+                                {
+                                  setState(() => loading = false),
+                                  print("User does not exist"),
+                                }
+                            },
+                          );
                         },
                         child: const Text("LOG IN",
                             style: TextStyle(

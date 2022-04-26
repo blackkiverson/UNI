@@ -2,7 +2,9 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uni/pages/authenticate/log_in.dart';
 import 'package:uni/pages/authenticate/sign_up.dart';
+import 'package:uni/pages/authenticate/welcome_page.dart';
 import 'package:uni/pages/home/main_page.dart';
 
 // ignore: use_key_in_widget_constructors
@@ -24,7 +26,7 @@ class _WrapperState extends State<Wrapper> {
     // print(user);
 
     if (user == null) {
-      return SignUp();
+      return WelcomePage();
     }
     else {
       return MainPage();

@@ -1,7 +1,10 @@
 // ignore_for_file: avoid_print
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/pages/services/auth.dart';
+import 'package:uni/pages/services/database.dart';
+import 'package:uni/pages/services/query.dart';
 import 'log_in.dart';
 
 class SignUp extends StatefulWidget {
@@ -332,6 +335,10 @@ class _SignUpState extends State<SignUp> {
                                 setState(() =>
                                     error = 'Please supply a valid email');
                               }
+                              final user = FirebaseAuth.instance.currentUser;
+                              await DatabaseService(uid: user!.uid)
+                                  .updateUserData(_fullname.text, _college.text,
+                                      _email.text);
                             }
                           }
                         },

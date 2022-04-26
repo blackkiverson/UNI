@@ -1,7 +1,6 @@
 // ignore_for_file: non_constant_identifier_names, unused_import, avoid_web_libraries_in_flutter
 
 import 'dart:convert';
-import 'dart:html';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 
@@ -16,14 +15,14 @@ class User {
   final String? postText;
   final String? postComment;
   final Image? postImage;
-  final VideoElement? postVideo;
+  // final VideoElement? postVideo;
   // final String? email;
 
   User(
       {this.postText,
       this.postComment,
       this.postImage,
-      this.postVideo,
+      // this.postVideo,
       required this.uid,
       required this.name,
       required this.follows,
@@ -44,7 +43,7 @@ class User {
           postText: json['postText']! as String,
           postComment: json['postComment']! as String,
           postImage: json['postImage']! as Image,
-          postVideo: json['PostVideo']! as VideoElement,
+          // postVideo: json['PostVideo']! as VideoElement,
         );
 
   Map<String, Object?> toJson() {
