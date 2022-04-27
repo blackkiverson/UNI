@@ -1,8 +1,6 @@
 // ignore_for_file: body_might_complete_normally_nullable, avoid_print, unused_local_variable, non_constant_identifier_names
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:uni/pages/services/database.dart';
-import 'wrapper.dart';
 
 import '../../models/user.dart';
 

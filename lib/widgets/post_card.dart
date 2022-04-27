@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'like_button.dart';
 import 'menu_button.dart';
 
@@ -8,16 +7,16 @@ class PostCard extends StatefulWidget {
   PostCard(
       {Key? key,
       required this.avatarImage,
-      required this.username,
-      required this.postTag,
+      required this.name,      
       required this.postText,
+      this.postTag,
       this.postImage,
       this.postVideo})
-      : super(key: key);
-  final String avatarImage;
-  final String username;
-  final String postTag;
+      : super(key: key);  
+  final String name;  
   final String postText;
+  String? avatarImage;
+  String? postTag;
   String? postImage;
   String? postVideo;
 
@@ -45,7 +44,7 @@ class _PostCardState extends State<PostCard> {
                   onPressed: () {},
                   icon: const Icon(Icons.person),
                 ),
-                foregroundImage: AssetImage(widget.avatarImage),
+                foregroundImage: AssetImage("img/male.jpg"),
               ),
             ),
 
@@ -55,7 +54,7 @@ class _PostCardState extends State<PostCard> {
                 TextButton(
                   onPressed: () {},
                   child: Text(
-                    widget.username,
+                    widget.name,
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -75,7 +74,8 @@ class _PostCardState extends State<PostCard> {
 
             // shows the Mockdata for the Post Tag
             subtitle: Text(
-              widget.postTag,
+              // widget.postTag,
+              "Music",
               style: const TextStyle(
                   color: Colors.white,
                   fontStyle: FontStyle.italic,

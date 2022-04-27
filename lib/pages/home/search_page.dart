@@ -32,7 +32,7 @@ class _SearchPageState extends State<SearchPage> {
               children: mockData //mockData to generate a dynamic User feed
                   .map((item) => PostCard(
                         avatarImage: item["profile_image"]!,
-                        username: item["username"]!,
+                        name: item["username"]!,
                         postTag: item["tag"]!,
                         postText: item["post"]!,
                         postImage: item["post_image"]!,
