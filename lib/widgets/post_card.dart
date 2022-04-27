@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni/pages/home/profile_page.dart';
 import 'like_button.dart';
 import 'menu_button.dart';
 
@@ -7,13 +8,13 @@ class PostCard extends StatefulWidget {
   PostCard(
       {Key? key,
       required this.avatarImage,
-      required this.name,      
+      required this.name,
       required this.postText,
       this.postTag,
       this.postImage,
       this.postVideo})
-      : super(key: key);  
-  final String name;  
+      : super(key: key);
+  final String name;
   final String postText;
   String? avatarImage;
   String? postTag;
@@ -52,7 +53,13 @@ class _PostCardState extends State<PostCard> {
             title: Row(
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const UserProfile(),
+                        ));
+                  },
                   child: Text(
                     widget.name,
                     style: const TextStyle(
@@ -93,7 +100,7 @@ class _PostCardState extends State<PostCard> {
             child: Text(widget.postText,
                 style: const TextStyle(color: Colors.white)),
           ),
-          widget.postImage != ""&& widget.postImage != null
+          widget.postImage != "" && widget.postImage != null
               ? Padding(
                   padding: const EdgeInsets.fromLTRB(75, 0, 20, 10),
                   child: Image(
