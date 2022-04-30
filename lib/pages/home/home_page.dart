@@ -5,6 +5,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:uni/pages/services/post_username.dart';
 import 'package:uni/widgets/post_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -50,7 +51,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    final user = FirebaseAuth.instance.currentUser;
+    // final user = FirebaseAuth.instance.currentUser;
 
     return StreamBuilder<QuerySnapshot>(
       stream: _PostsStream,
@@ -71,7 +72,8 @@ class _HomePageState extends State<HomePage> {
               avatarImage: data['avatarImage'],
               postTag: data['postTag'], 
               postText: data['postText'],
-              name: user!.displayName.toString(),
+              name: GetUserName.documentId.toString(),
+              postImage: '', //make it show different user names
               // title: Text(data['full_name']),
               // subtitle: Text(data['company']),
             );

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:uni/widgets/profile_activity.dart';
 import 'package:uni/widgets/profile_education.dart';
@@ -16,6 +17,9 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
   @override
   Widget build(BuildContext context) {
+
+    final user = FirebaseAuth.instance.currentUser;
+
     return Material(
       color: Color.fromARGB(255, 12, 12, 12),
       child: Stack(
@@ -52,7 +56,7 @@ class _UserProfileState extends State<UserProfile> {
                       Padding(
                         padding: const EdgeInsets.only(top: 60),
                         child: Column(
-                          children: const [
+                          children: [
                             CircleAvatar(
                               radius: 50,
                               backgroundColor: Colors.blue,
@@ -60,7 +64,7 @@ class _UserProfileState extends State<UserProfile> {
                             ),
                             SizedBox(height: 10),
                             Text(
-                              "Samuel Onyebuchi-Igbokwe",
+                              user != null ? user.displayName.toString() : '',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold,

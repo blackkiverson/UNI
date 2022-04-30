@@ -97,8 +97,11 @@ class _PostCardState extends State<PostCard> {
           //uses the Mockdata to generate the post text and media
           Padding(
             padding: const EdgeInsets.fromLTRB(75, 0, 10, 20),
-            child: Text(widget.postText,
-                style: const TextStyle(color: Colors.white)),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(widget.postText,
+                  style: const TextStyle(color: Colors.white)),
+            ),
           ),
           widget.postImage != "" && widget.postImage != null
               ? Padding(
