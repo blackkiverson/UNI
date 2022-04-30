@@ -21,14 +21,15 @@ class _PostPageState extends State<PostPage> {
   String postImage = '';
   String avatarImage = '';
 
-  late final TextEditingController _username;
+  // late final TextEditingController _username;
   late final TextEditingController _postText;
   late final TextEditingController _postImage;
   late final TextEditingController _avatarImage;
 
   @override
   void initState() {
-    _username = TextEditingController();
+    username = FirebaseAuth.instance.currentUser!.displayName.toString();
+    // _username = TextEditingController();
     _postText = TextEditingController();
     _postImage = TextEditingController();
     _avatarImage = TextEditingController();
@@ -37,7 +38,7 @@ class _PostPageState extends State<PostPage> {
 
   @override
   void dispose() {
-    _username.dispose();
+    // _username.dispose();
     _postText.dispose();
     _postImage.dispose();
     _avatarImage.dispose();
@@ -91,7 +92,7 @@ class _PostPageState extends State<PostPage> {
                   onPressed: () async {
                     final user = FirebaseAuth.instance.currentUser;
                     await Databaseposts(uid: user!.uid, avatarImage: '', postImage: '', postText: '', username: '')
-                        .updatePostData(_username.text, _postText.text, _postImage.text, _avatarImage.text);
+                        .updatePostData(username, _postText.text, _postImage.text, _avatarImage.text);
                     Navigator.pop(context);
                   },
                   child: Text("Submit"),

@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
 
-    // final user = FirebaseAuth.instance.currentUser;
+    final user = FirebaseAuth.instance.currentUser;
 
     return StreamBuilder<QuerySnapshot>(
       stream: _PostsStream,
@@ -72,8 +72,8 @@ class _HomePageState extends State<HomePage> {
               avatarImage: data['avatarImage'],
               postTag: data['postTag'], 
               postText: data['postText'],
-              name: GetUserName.documentId.toString(),
-              postImage: '', //make it show different user names
+              name: data['username'],
+              postImage: '',
               // title: Text(data['full_name']),
               // subtitle: Text(data['company']),
             );

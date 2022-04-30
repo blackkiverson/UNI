@@ -51,4 +51,6 @@ class Databaseposts {
   Stream<QuerySnapshot> get Posts {
     return PostCollections.snapshots();
   }
+
+  Future updatePostImg() async {}
 }
