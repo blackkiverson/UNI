@@ -34,6 +34,7 @@ class _UserProfileState extends State<UserProfile> {
     return StreamBuilder<QuerySnapshot>(
       stream: _ProfileStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+        
         return ListView(
           children: snapshot.data!.docs.map((DocumentSnapshot document) {
             Map<String, dynamic> data =
