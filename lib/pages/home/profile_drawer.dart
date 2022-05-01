@@ -42,7 +42,7 @@ class _SideProfileState extends State<SideProfile> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const UserProfile(),
+                                builder: (context) => UserProfile(bio: '', location: '',),
                               ));
                         },
                         icon: const Icon(
@@ -64,7 +64,7 @@ class _SideProfileState extends State<SideProfile> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UserProfile(),
+                              builder: (context) => UserProfile(bio: '', location: '',),
                             ));
                       },
                       child: Text(
@@ -100,7 +100,7 @@ class _SideProfileState extends State<SideProfile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const UserProfile(),
+                    builder: (context) => UserProfile(bio: '', location: '',),
                   ));
             },
             iconColor: Colors.white,

@@ -1,11 +1,9 @@
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:uni/pages/services/post_username.dart';
 import 'package:uni/widgets/post_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -46,12 +44,12 @@ class _HomePageState extends State<HomePage> {
   //   },
   // ];
   bool isSelected = false;
-  final Stream<QuerySnapshot> _PostsStream = FirebaseFirestore.instance.collection('Posts').snapshots();
+  final Stream<QuerySnapshot> _PostsStream =
+      FirebaseFirestore.instance.collection('Posts').snapshots();
 
   @override
   Widget build(BuildContext context) {
-
-    final user = FirebaseAuth.instance.currentUser;
+    // final user = FirebaseAuth.instance.currentUser;
 
     return StreamBuilder<QuerySnapshot>(
       stream: _PostsStream,
@@ -70,15 +68,26 @@ class _HomePageState extends State<HomePage> {
                 document.data()! as Map<String, dynamic>;
             return PostCard(
               avatarImage: data['avatarImage'],
-              postTag: data['postTag'], 
+              postTag: data['postTag'],
               postText: data['postText'],
               name: data['username'],
               postImage: '',
-              // title: Text(data['full_name']),
-              // subtitle: Text(data['company']),
             );
           }).toList(),
         );
+        // return ListView(
+        // physics: const AlwaysScrollableScrollPhysics(),
+        // scrollDirection: Axis.vertical,
+        // children: mockData //mockData to generate a dynamic User feed
+        //     .map((item) => PostCard(
+        //           avatarImage: item["profile_image"]!,
+        //           username: item["username"]!,
+        //           postTag: item["tag"]!,
+        //           postText: item["post"]!,
+        //           postImage: item["post_image"]!,
+        //           postVideo: item["post_video"],
+        //         ))
+        //     .toList());
       },
     );
   }

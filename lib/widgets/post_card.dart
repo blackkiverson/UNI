@@ -57,7 +57,7 @@ class _PostCardState extends State<PostCard> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const UserProfile(),
+                          builder: (context) => UserProfile(bio: '', location: '',),
                         ));
                   },
                   child: Text(

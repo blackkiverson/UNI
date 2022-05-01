@@ -54,3 +54,33 @@ class Databaseposts {
 
   Future updatePostImg() async {}
 }
+
+class DatabaseProfile {
+  final String uid;
+  final String avatarImage;
+  final String username;
+  final String bio;
+  final String location;
+  final String college;
+
+  DatabaseProfile({required this.avatarImage, required this.uid, required this.username, required this.bio, required this.location, required this.college});
+
+  CollectionReference ProfileCollections =
+      FirebaseFirestore.instance.collection("Profile");
+
+  Future updateProfileData(String bio, String location) async {
+    return await ProfileCollections.doc(uid).set({
+      "uid" : uid,
+      "username": username,
+      "avatarImage": avatarImage,
+      "bio": bio,
+      "location": location,
+      "college" : college,
+    });
+  }
+
+  //get post Stream
+  Stream<QuerySnapshot> get Posts {
+    return ProfileCollections.snapshots();
+  }
+}
