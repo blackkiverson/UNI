@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:uni/pages/home/profile_page.dart';
 import 'like_button.dart';
 import 'menu_button.dart';
 
@@ -8,16 +8,16 @@ class PostCard extends StatefulWidget {
   PostCard(
       {Key? key,
       required this.avatarImage,
-      required this.username,
-      required this.postTag,
+      required this.name,
       required this.postText,
+      this.postTag,
       this.postImage,
       this.postVideo})
       : super(key: key);
-  final String avatarImage;
-  final String username;
-  final String postTag;
+  final String name;
   final String postText;
+  String? avatarImage;
+  String? postTag;
   String? postImage;
   String? postVideo;
 
@@ -45,7 +45,7 @@ class _PostCardState extends State<PostCard> {
                   onPressed: () {},
                   icon: const Icon(Icons.person),
                 ),
-                foregroundImage: AssetImage(widget.avatarImage),
+                foregroundImage: AssetImage("img/male.jpg"),
               ),
             ),
 
@@ -53,9 +53,15 @@ class _PostCardState extends State<PostCard> {
             title: Row(
               children: [
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserProfile(bio: '', location: '',),
+                        ));
+                  },
                   child: Text(
-                    widget.username,
+                    widget.name,
                     style: const TextStyle(
                         color: Colors.white,
                         fontSize: 16,
@@ -75,7 +81,8 @@ class _PostCardState extends State<PostCard> {
 
             // shows the Mockdata for the Post Tag
             subtitle: Text(
-              widget.postTag,
+              // widget.postTag,
+              "Music",
               style: const TextStyle(
                   color: Colors.white,
                   fontStyle: FontStyle.italic,
@@ -90,10 +97,13 @@ class _PostCardState extends State<PostCard> {
           //uses the Mockdata to generate the post text and media
           Padding(
             padding: const EdgeInsets.fromLTRB(75, 0, 10, 20),
-            child: Text(widget.postText,
-                style: const TextStyle(color: Colors.white)),
+            child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(widget.postText,
+                  style: const TextStyle(color: Colors.white)),
+            ),
           ),
-          widget.postImage != ""&& widget.postImage != null
+          widget.postImage != "" && widget.postImage != null
               ? Padding(
                   padding: const EdgeInsets.fromLTRB(75, 0, 20, 10),
                   child: Image(

@@ -1,7 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uni/pages/home/discover_page.dart';
+import 'package:uni/pages/authenticate/log_in.dart';
+import 'package:uni/pages/home/fav_page.dart';
 import 'package:uni/pages/home/profile_page.dart';
 import 'package:uni/pages/home/setting_page.dart';
+import 'package:uni/pages/services/auth.dart';
 
 class SideProfile extends StatefulWidget {
   const SideProfile({Key? key}) : super(key: key);
@@ -11,8 +14,14 @@ class SideProfile extends StatefulWidget {
 }
 
 class _SideProfileState extends State<SideProfile> {
+  final AuthService _auth = AuthService();
+
   @override
   Widget build(BuildContext context) {
+    // setState(() {
+      final user = FirebaseAuth.instance.currentUser;
+    // });
+
     return Drawer(
       backgroundColor: Color.fromARGB(255, 1, 21, 37),
       child: ListView(
@@ -33,10 +42,9 @@ class _SideProfileState extends State<SideProfile> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const UserProfile(),
+                                builder: (context) => UserProfile(bio: '', location: '',),
                               ));
                         },
-                        
                         icon: const Icon(
                           Icons.person,
                           size: 30,
@@ -56,11 +64,11 @@ class _SideProfileState extends State<SideProfile> {
                         Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const UserProfile(),
+                              builder: (context) => UserProfile(bio: '', location: '',),
                             ));
                       },
                       child: Text(
-                        "Samuel Onyebuchi-Igbokwe",
+                        user != null ? user.displayName.toString() : '',
                         style: TextStyle(
                             color: Colors.white,
                             fontWeight: FontWeight.w600,
@@ -92,7 +100,7 @@ class _SideProfileState extends State<SideProfile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const UserProfile(),
+                    builder: (context) => UserProfile(bio: '', location: '',),
                   ));
             },
             iconColor: Colors.white,
@@ -111,14 +119,14 @@ class _SideProfileState extends State<SideProfile> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => const TagDiscover(),
+                    builder: (context) => const FavPage(),
                   ));
             },
             iconColor: Colors.white,
             // tileColor: Color.fromARGB(255, 42, 61, 77),
-            leading: Icon(Icons.lens_blur_outlined),
+            leading: Icon(Icons.bookmark_border_outlined),
             title: Text(
-              "Discover Topics",
+              "Bookmarks",
               style: TextStyle(
                   color: Colors.white,
                   fontSize: 15,
@@ -173,20 +181,29 @@ class _SideProfileState extends State<SideProfile> {
             ),
           ),
           SizedBox(
-          child: ListTile(
-            iconColor: Colors.white,
-            onTap: () {},
-            leading: Icon(Icons.logout_rounded),
-            title: Text(
-              "Log Out",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400),
+            child: ListTile(
+              iconColor: Colors.white,
+              onTap: () async {
+                await _auth.signOut().then(
+                      ((value) => Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => const LogIn(),
+                            ),
+                          )),
+                    );
+              },
+              leading: Icon(Icons.logout_rounded),
+              title: Text(
+                "Log Out",
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 15,
+                    fontWeight: FontWeight.w400),
+              ),
             ),
-          ),
-                
-          )],
+          )
+        ],
       ),
     );
   }

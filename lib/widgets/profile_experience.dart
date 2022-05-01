@@ -13,13 +13,16 @@ class _ProfileExperienceState extends State<ProfileExperience> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 210),
-              child: Text("Experience", style: TextStyle(color: Colors.white)),
+            Text("Experience", style: TextStyle(color: Colors.white)),
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
+                IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+              ],
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
-            IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+            
           ],
         ),
         Divider(

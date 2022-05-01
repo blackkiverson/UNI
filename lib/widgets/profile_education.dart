@@ -13,13 +13,16 @@ class _ProfileEducationState extends State<ProfileEducation> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 215),
-              child: Text("Education", style: TextStyle(color: Colors.white)),
+            Text("Education", style: TextStyle(color: Colors.white)),
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
+                IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+              ],
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
-            IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+            
           ],
         ),
         Divider(

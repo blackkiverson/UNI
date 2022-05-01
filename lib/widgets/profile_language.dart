@@ -13,13 +13,16 @@ class _ProfileLangState extends State<ProfileLang> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 210),
-              child: Text("Languages", style: TextStyle(color: Colors.white)),
+            Text("Languages", style: TextStyle(color: Colors.white)),
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
+                IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+              ],
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
-            IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+            
           ],
         ),
         Divider(

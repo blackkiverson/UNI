@@ -1,6 +1,12 @@
+// ignore_for_file: avoid_print, unused_local_variable, unused_field
+
 import 'package:flutter/material.dart';
-import 'package:uni/pages/authentication/sign_up.dart';
-import '../home/main_page.dart';
+import 'package:uni/pages/authenticate/emailverification_page.dart';
+import 'package:uni/pages/authenticate/sign_up.dart';
+import 'package:uni/pages/home/main_page.dart';
+import 'package:uni/pages/services/auth.dart';
+
+import '../../widgets/loading_screen.dart';
 
 class LogIn extends StatefulWidget {
   const LogIn({Key? key}) : super(key: key);
@@ -12,11 +18,42 @@ class LogIn extends StatefulWidget {
 class _LogInState extends State<LogIn> {
   final _formkey = GlobalKey();
   bool isPasswordVisible = false;
+  bool loading = false;
+
+  final AuthService _auth = AuthService();
+
+  String email = '';
+  String password = '';
+
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+
+  @override
+  void initState() {
+    _email = TextEditingController();
+    _password = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _email.dispose();
+    _password.dispose();
+    super.dispose();
+  }
+
+  Future signIn() async {
+    final user =
+        await AuthService().signInWithEmailAndPassword(email, password);
+    return user;
+  }
 
   @override
   Widget build(BuildContext context) {
     // ignore: prefer_const_constructors
-    return Scaffold(
+    return 
+    loading ? LoadingScreen() : 
+    Scaffold(
       body: SafeArea(
         child: Container(
           height: double.maxFinite,
@@ -27,7 +64,7 @@ class _LogInState extends State<LogIn> {
               fit: BoxFit.cover,
             ),
           ),
-        child: Form(
+          child: Form(
             key: _formkey,
             child: SingleChildScrollView(
               child: Column(
@@ -73,7 +110,11 @@ class _LogInState extends State<LogIn> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          onChanged: ((value) {
+                            setState(() => email = value);
+                          }),
+                          controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
                             color: Colors.black,
@@ -120,6 +161,10 @@ class _LogInState extends State<LogIn> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          onChanged: ((value) {
+                            setState(() => password = value);
+                          }),
+                          controller: _password,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -133,32 +178,45 @@ class _LogInState extends State<LogIn> {
                       ),
                     ],
                   ),
-                  
-                  const SizedBox(
-                    height: 50
-                  ),
-                  
+
+                  const SizedBox(height: 50),
+
                   TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (BuildContext context) =>
+                                  const EmailVerification()));
+                    },
                     child: const Text(
                       "Forgot Password?",
-                      style: TextStyle(
-                        color: Colors.blue
-                      ),
-                    ),                    
+                      style: TextStyle(color: Colors.blue),
+                    ),
                   ),
 
                   const SizedBox(height: 150),
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => 
-                              const MainPage(),
-                            )
+                        onPressed: () async {
+                          await signIn().then(
+                            (user) => {
+                              if (user.uid != null)
+                                {
+                                  setState(() => loading = true),
+                                  Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                          builder: (BuildContext context) =>
+                                              const MainPage()))
+                                }
+                              else
+                                {
+                                  setState(() => loading = false),
+                                  print("User does not exist"),
+                                }
+                            },
                           );
                         },
                         child: const Text("LOG IN",
@@ -167,15 +225,14 @@ class _LogInState extends State<LogIn> {
                             )),
                       )
                     ],
-                  ),                  
+                  ),
 
                   TextButton(
                     onPressed: () {
                       Navigator.push(
-                        context, 
+                        context,
                         MaterialPageRoute(
-                          builder: (context) => 
-                            const SignUp(),
+                          builder: (context) => const SignUp(),
                         ),
                       );
                     },

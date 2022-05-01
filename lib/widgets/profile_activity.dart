@@ -14,35 +14,30 @@ class _ProfileActivityState extends State<ProfileActivity> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30),
-              child: Text(
-                "Activity",
-                style: TextStyle(color: Colors.white),
-              ),
+            Text(
+              "Activity",
+              style: TextStyle(color: Colors.white),
             ),
-            Padding(
-              padding: const EdgeInsets.only(left: 210),
-              child: TextButton(
-                onPressed: () {},
-                child: Container(
-                  height: 34,
-                  width: 100,
-                  decoration: BoxDecoration(
-                    border: Border(
-                      top: BorderSide(color: Colors.blue),
-                      bottom: BorderSide(color: Colors.blue),
-                      left: BorderSide(color: Colors.blue),
-                      right: BorderSide(color: Colors.blue),
-                    ),
-                    color: Color.fromARGB(68, 0, 140, 255),
-                    borderRadius: BorderRadius.circular(20),
+            TextButton(
+              onPressed: () {},
+              child: Container(
+                height: 34,
+                width: 100,
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(color: Colors.blue),
+                    bottom: BorderSide(color: Colors.blue),
+                    left: BorderSide(color: Colors.blue),
+                    right: BorderSide(color: Colors.blue),
                   ),
-                  child: TextButton(
-                    onPressed: () {},
-                    child: Text("Start a Post"),
-                  ),
+                  color: Color.fromARGB(68, 0, 140, 255),
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                child: TextButton(
+                  onPressed: () {},
+                  child: Text("Start a Post"),
                 ),
               ),
             ),

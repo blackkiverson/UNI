@@ -1,6 +1,10 @@
+// ignore_for_file: avoid_print
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:uni/pages/authentication/log_in.dart';
-import 'package:uni/pages/home/main_page.dart';
+import 'package:uni/pages/services/auth.dart';
+import 'package:uni/pages/services/database.dart';
+import 'log_in.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -10,8 +14,43 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
-  final _formkey = GlobalKey();
+  final AuthService _auth = AuthService();
+
+  final _formkey = GlobalKey<FormState>();
   bool isPasswordVisible = false;
+
+  String fullname = '';
+  String college = '';
+  String email = '';
+  String password = '';
+  String confirmpassword = '';
+  String error = '';
+
+  late final TextEditingController _fullname;
+  late final TextEditingController _college;
+  late final TextEditingController _email;
+  late final TextEditingController _password;
+  late final TextEditingController _confirmpassword;
+
+  @override
+  void initState() {
+    _fullname = TextEditingController();
+    _college = TextEditingController();
+    _email = TextEditingController();
+    _password = TextEditingController();
+    _confirmpassword = TextEditingController();
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _fullname.dispose();
+    _college.dispose();
+    _email.dispose();
+    _password.dispose();
+    _confirmpassword.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -74,7 +113,11 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          onChanged: (value) {
+                            setState(() => fullname = value);
+                          },
+                          controller: _fullname,
                           keyboardType: TextInputType.name,
                           style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
@@ -115,7 +158,11 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          onChanged: (value) {
+                            setState(() => college = value);
+                          },
+                          controller: _college,
                           keyboardType: TextInputType.name,
                           style: TextStyle(color: Colors.black),
                           decoration: InputDecoration(
@@ -156,7 +203,13 @@ class _SignUpState extends State<SignUp> {
                         ),
                         height: 50,
                         width: 350,
-                        child: const TextField(
+                        child: TextField(
+                          //validate the email to college email
+
+                          onChanged: (value) {
+                            setState(() => email = value);
+                          },
+                          controller: _email,
                           keyboardType: TextInputType.emailAddress,
                           style: TextStyle(
                             color: Colors.black,
@@ -168,7 +221,7 @@ class _SignUpState extends State<SignUp> {
                               Icons.email,
                               // color: Colors.blueGrey,
                             ),
-                            hintText: "xxxx@mail.com",
+                            hintText: "college e-mail",
                             hintStyle: TextStyle(color: Colors.blueGrey),
                           ),
                         ),
@@ -203,6 +256,11 @@ class _SignUpState extends State<SignUp> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          // validate: (value) => value.length < 6 ? null,
+                          onChanged: (value) {
+                            setState(() => password = value);
+                          },
+                          controller: _password,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -244,6 +302,10 @@ class _SignUpState extends State<SignUp> {
                         height: 50,
                         width: 350,
                         child: TextField(
+                          onChanged: (value) {
+                            setState(() => confirmpassword = value);
+                          },
+                          controller: _confirmpassword,
                           obscureText: isPasswordVisible ? false : true,
                           style: const TextStyle(color: Colors.black),
                           decoration: const InputDecoration(
@@ -262,29 +324,38 @@ class _SignUpState extends State<SignUp> {
                   Column(
                     children: [
                       ElevatedButton(
-                        onPressed: () {
-                          Navigator.push(
-                            context, 
-                            MaterialPageRoute(
-                              builder: (context) => 
-                              const MainPage(),
-                            )
-                          );
+                        onPressed: () async {
+                          if (_formkey.currentState!.validate()) {
+                            if (_password.text == _confirmpassword.text) {
+                              dynamic result =
+                                  await _auth.registerWithEmailAndPassword(
+                                      email, password, fullname);
+                              if (result == null) {
+                                setState(() =>
+                                    error = 'Please supply a valid email');
+                              }
+                              final user = FirebaseAuth.instance.currentUser;
+                              await DatabaseService(uid: user!.uid)
+                                  .updateUserData(_fullname.text, _college.text,
+                                      _email.text);                              
+                            }
+                          }
                         },
                         child: const Text("SIGN UP",
                             style: TextStyle(
                               color: Colors.white,
                             )),
-                      )
+                      ),
+                      SizedBox(height: 12),
+                      Text(error, style: TextStyle(color: Colors.red)),
                     ],
                   ),
                   TextButton(
                     onPressed: () {
                       Navigator.push(
-                        context, 
+                        context,
                         MaterialPageRoute(
-                          builder: (context) => 
-                            const LogIn(),
+                          builder: (context) => const LogIn(),
                         ),
                       );
                     },

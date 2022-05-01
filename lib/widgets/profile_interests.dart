@@ -13,13 +13,16 @@ class _ProfileTopicsState extends State<ProfileTopics> {
     return Column(
       children: [
         Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 30, right: 180),
-              child: Text("Favourite Topics", style: TextStyle(color: Colors.white)),
+            Text("Favourite Topics", style: TextStyle(color: Colors.white)),
+            Row(
+              children: [
+                IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
+                IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+              ],
             ),
-            IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
-            IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
+            
           ],
         ),
         Divider(
