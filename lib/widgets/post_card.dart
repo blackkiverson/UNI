@@ -45,7 +45,7 @@ class _PostCardState extends State<PostCard> {
                   onPressed: () {},
                   icon: const Icon(Icons.person),
                 ),
-                foregroundImage: AssetImage("img/male.jpg"),
+                foregroundImage: AssetImage("img/defaultDP.jpg"),
               ),
             ),
 

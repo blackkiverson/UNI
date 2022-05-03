@@ -50,7 +50,7 @@ class _SideProfileState extends State<SideProfile> {
                           size: 30,
                         ),
                       ),
-                      foregroundImage: AssetImage("img/male.jpg"),
+                      foregroundImage: AssetImage("img/defaultDP.jpg"),
                       // foregroundImage: const AssetImage("img/wpone.jpg"),
                     ),
                   ),
