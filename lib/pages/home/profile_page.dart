@@ -25,6 +25,8 @@ class UserProfile extends StatefulWidget {
 class _UserProfileState extends State<UserProfile> {
 
   // ignore: non_constant_identifier_names
+
+  //fix the scroll behaviuor when new profile edit is made.
   final Stream<QuerySnapshot> _ProfileStream = FirebaseFirestore.instance.collection('Profile').snapshots();
 
   @override
@@ -131,7 +133,7 @@ class _UserProfileState extends State<UserProfile> {
                                   TextButton(
                                       onPressed: () {},
                                       child: Text(
-                                        "34",
+                                        "0",
                                         style: TextStyle(
                                             fontSize: 20,
                                             color:
@@ -148,7 +150,7 @@ class _UserProfileState extends State<UserProfile> {
                                   TextButton(
                                       onPressed: () {},
                                       child: Text(
-                                        "34",
+                                        "0",
                                         style: TextStyle(
                                             fontSize: 20,
                                             color:
