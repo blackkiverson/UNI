@@ -21,14 +21,14 @@ class _DmPageState extends State<DmPage> {
       "username": "Isioma",
       "tag": "Music",
       "post":
-          "Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
+          "Hello, still waiting on the documentation.",
       "profile_image": "img/wpone.jpg",
     },
     {
       "username": "Miracle",
       "tag": "Education",
       "post":
-          "You: Greyhound divisively hello coldly wonderfully marginally far upon excluding.",
+          "You: When are we going out for the reunion?",
       "profile_image": "img/wptwo.jpg",
     },
   ];

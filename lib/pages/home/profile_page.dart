@@ -80,7 +80,7 @@ class _UserProfileState extends State<UserProfile> {
                                   CircleAvatar(
                                     radius: 50,
                                     backgroundColor: Colors.blue,
-                                    foregroundImage: AssetImage("img/male.jpg"),
+                                    foregroundImage: AssetImage("img/defaultDP.jpg"),
                                   ),
                                   SizedBox(height: 10),
                                   Text(

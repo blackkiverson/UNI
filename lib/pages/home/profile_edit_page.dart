@@ -83,7 +83,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                             CircleAvatar(
                               radius: 50,
                               backgroundColor: Colors.blue,
-                              backgroundImage: AssetImage("img/male.jpg"),
+                              backgroundImage: AssetImage("img/defaultDP.jpg"),
                               foregroundColor: Colors.black,
                               child: Icon(Icons.add_a_photo_outlined,
                                   size: 50, color: Colors.white),
