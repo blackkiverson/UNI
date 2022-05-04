@@ -11,7 +11,6 @@ class PostPage extends StatefulWidget {
 }
 
 class _PostPageState extends State<PostPage> {
-
   // late TextEditingController postText = TextEditingController();
 
   // List pages = ;
@@ -20,6 +19,7 @@ class _PostPageState extends State<PostPage> {
   String postText = '';
   String postImage = '';
   String avatarImage = '';
+  String topic = '';
 
   // late final TextEditingController _username;
   late final TextEditingController _postText;
@@ -63,6 +63,7 @@ class _PostPageState extends State<PostPage> {
     return Stack(
       children: [
         Scaffold(
+          backgroundColor: Color.fromARGB(255, 12, 12, 12),
           //Creating the top elements for page
           appBar: AppBar(
             elevation: 1,
@@ -81,7 +82,7 @@ class _PostPageState extends State<PostPage> {
             actions: [
               Align(
                 alignment: Alignment.centerLeft,
-                child: TextButton(                  
+                child: TextButton(
                   onPressed: () {},
                   child: Text("Draft"),
                 ),
@@ -90,9 +91,35 @@ class _PostPageState extends State<PostPage> {
                 alignment: Alignment.centerRight,
                 child: ElevatedButton(
                   onPressed: () async {
+                    final postTextContent = _postText.text.trim();
+                    if (postTextContent.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        _buildSnackBar("Your post content is empty."),
+                      );
+                      return;
+                    }
+
+                    if (topic.isEmpty) {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        _buildSnackBar("Please select a topic."),
+                      );
+                      return;
+                    }
+
                     final user = FirebaseAuth.instance.currentUser;
-                    await Databaseposts(uid: user!.uid, avatarImage: '', postImage: '', postText: '', username: '')
-                        .updatePostData(username, _postText.text, _postImage.text, _avatarImage.text);
+                    await Databaseposts(
+                            uid: user!.uid,
+                            avatarImage: '',
+                            postImage: '',
+                            postText: '',
+                            username: '')
+                        .updatePostData(
+                      username,
+                      _postText.text,
+                      _postImage.text,
+                      _avatarImage.text,
+                      topic,
+                    );
                     Navigator.pop(context);
                   },
                   child: Text("Submit"),
@@ -104,11 +131,271 @@ class _PostPageState extends State<PostPage> {
             ],
           ),
 
-          //Creating a text field for user to input text
-          body: SingleChildScrollView(
-            child: Column(
+          bottomNavigationBar: Container(
+            // constraints: BoxConstraints.expand(height: 60),
+            height: 60,
+            decoration: BoxDecoration(color: Color.fromARGB(255, 12, 12, 12)),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                Container(
+                IconButton(
+                  color: Colors.blue,
+                  onPressed: () {},
+                  icon: Icon(Icons.image_outlined),
+                  iconSize: 30,
+                ),
+                IconButton(
+                  color: Colors.blue,
+                  onPressed: () {},
+                  icon: Icon(Icons.align_horizontal_left),
+                ),
+                IconButton(
+                  color: Colors.blue,
+                  onPressed: () {},
+                  icon: Icon(Icons.insert_link_rounded),
+                ),
+                IconButton(
+                  color: Colors.blue,
+                  onPressed: () {},
+                  icon: Icon(Icons.multitrack_audio_outlined),
+                ),
+                IconButton(
+                  color: Colors.blue,
+                  onPressed: () {},
+                  icon: Icon(Icons.camera_alt_outlined),
+                ),
+              ],
+            ),
+          ),
+
+          //Creating a text field for user to input text
+          body: Column(
+            children: [
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Column(
+                  children: [
+                    Row(
+                      children: [
+                        FilterChip(
+                          label: Text("Mathematics"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Mathematics";
+                              });
+                            }
+                          },
+                          selected: topic == "Mathematics",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Mathematics"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("English"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "English";
+                              });
+                            }
+                          },
+                          selected: topic == "English",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "English"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Computer Science"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Computer Science";
+                              });
+                            }
+                          },
+                          selected: topic == "Computer Science",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Computer Science"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Software Engineering"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Software Engineering";
+                              });
+                            }
+                          },
+                          selected: topic == "Software Engineering",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Software Engineering"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Chemistry"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Chemistry";
+                              });
+                            }
+                          },
+                          selected: topic == "Chemistry",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Chemistry"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        )
+                      ],
+                    ),
+                    Row(
+                      children: [
+                        FilterChip(
+                          label: Text("Literature"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Literature";
+                              });
+                            }
+                          },
+                          selected: topic == "Literature",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Literature"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Technology"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Technology";
+                              });
+                            }
+                          },
+                          selected: topic == "Technology",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Technology"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("History"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "History";
+                              });
+                            }
+                          },
+                          selected: topic == "History",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "History"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Architecture"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Architecture";
+                              });
+                            }
+                          },
+                          selected: topic == "Architecture",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Architecture"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Cryptography"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Cryptography";
+                              });
+                            }
+                          },
+                          selected: topic == "Cryptography",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Cryptography"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        ),
+                        SizedBox(width: 20),
+                        FilterChip(
+                          label: Text("Geography"),
+                          onSelected: (bool value) {
+                            if (value == true) {
+                              setState(() {
+                                topic = "Geography";
+                              });
+                            }
+                          },
+                          selected: topic == "Geography",
+                          selectedColor: Colors.blue,
+                          checkmarkColor: Colors.white,
+                          labelStyle: TextStyle(
+                            color: topic == "Geography"
+                                ? Colors.white
+                                : Colors.black,
+                          ),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Expanded(
+                child: Container(
                   // height: MediaQuery.of(context).size.height,
                   height: MediaQuery.of(context).size.longestSide,
                   alignment: Alignment.topCenter,
@@ -129,48 +416,27 @@ class _PostPageState extends State<PostPage> {
                             TextStyle(color: Color.fromARGB(255, 95, 95, 95))),
                   ),
                 ),
-                Container(
-                  // constraints: BoxConstraints.expand(height: 60),
-                  height: 60,
-                  decoration:
-                      BoxDecoration(color: Color.fromARGB(255, 12, 12, 12)),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      IconButton(
-                        color: Colors.blue,
-                        onPressed: () {},
-                        icon: Icon(Icons.image_outlined),
-                        iconSize: 30,
-                      ),
-                      IconButton(
-                        color: Colors.blue,
-                        onPressed: () {},
-                        icon: Icon(Icons.align_horizontal_left),
-                      ),
-                      IconButton(
-                        color: Colors.blue,
-                        onPressed: () {},
-                        icon: Icon(Icons.insert_link_rounded),
-                      ),
-                      IconButton(
-                        color: Colors.blue,
-                        onPressed: () {},
-                        icon: Icon(Icons.multitrack_audio_outlined),
-                      ),
-                      IconButton(
-                        color: Colors.blue,
-                        onPressed: () {},
-                        icon: Icon(Icons.camera_alt_outlined),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ],
+    );
+  }
+
+  SnackBar _buildSnackBar(String message) {
+    return SnackBar(
+      duration: Duration(milliseconds: 4000),
+      content: Padding(
+        padding: const EdgeInsets.all(0),
+        child: Text(
+          message,
+          style: TextStyle(
+            color: Colors.white,
+          ),
+        ),
+      ),
+      backgroundColor: Colors.red,
     );
   }
 }
