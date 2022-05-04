@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
                 document.data()! as Map<String, dynamic>;
             return PostCard(
               avatarImage: data['avatarImage'],
-              postTag: data['postTag'],
+              postTag: data['postTag'] ?? "",
               postText: data['postText'],
               name: data['username'],
               postImage: '',
