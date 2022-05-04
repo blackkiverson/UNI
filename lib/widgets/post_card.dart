@@ -10,14 +10,14 @@ class PostCard extends StatefulWidget {
       required this.avatarImage,
       required this.name,
       required this.postText,
-      this.postTag,
+      required this.postTag,
       this.postImage,
       this.postVideo})
       : super(key: key);
   final String name;
   final String postText;
   String? avatarImage;
-  String? postTag;
+  String postTag;
   String? postImage;
   String? postVideo;
 
@@ -81,8 +81,7 @@ class _PostCardState extends State<PostCard> {
 
             // shows the Mockdata for the Post Tag
             subtitle: Text(
-              // widget.postTag,
-              "Music",
+              widget.postTag,
               style: const TextStyle(
                   color: Colors.white,
                   fontStyle: FontStyle.italic,
