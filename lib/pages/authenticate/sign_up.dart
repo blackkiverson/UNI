@@ -2,6 +2,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:uni/pages/home/main_page.dart';
 import 'package:uni/pages/services/auth.dart';
 import 'package:uni/pages/services/database.dart';
 import 'log_in.dart';
@@ -333,11 +334,17 @@ class _SignUpState extends State<SignUp> {
                               if (result == null) {
                                 setState(() =>
                                     error = 'Please supply a valid email');
+                                return;
                               }
                               final user = FirebaseAuth.instance.currentUser;
                               await DatabaseService(uid: user!.uid)
                                   .updateUserData(_fullname.text, _college.text,
-                                      _email.text);                              
+                                      _email.text);
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (BuildContext context) =>
+                                      const MainPage()));
                             }
                           }
                         },

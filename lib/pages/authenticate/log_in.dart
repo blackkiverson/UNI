@@ -202,7 +202,7 @@ class _LogInState extends State<LogIn> {
                         onPressed: () async {
                           await signIn().then(
                             (user) => {
-                              if (user.uid != null)
+                              if (user?.uid != null)
                                 {
                                   setState(() => loading = true),
                                   Navigator.push(
