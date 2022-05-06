@@ -45,7 +45,7 @@ class _HomePageState extends State<HomePage> {
   // ];
   bool isSelected = false;
   final Stream<QuerySnapshot> _PostsStream =
-      FirebaseFirestore.instance.collection('Posts').snapshots();
+      FirebaseFirestore.instance.collection('Posts').orderBy("desc").snapshots();
 
   @override
   Widget build(BuildContext context) {

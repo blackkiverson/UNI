@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:uni/pages/home/post_page.dart';
 
 class ProfileActivity extends StatefulWidget {
   const ProfileActivity({Key? key}) : super(key: key);
@@ -36,7 +37,14 @@ class _ProfileActivityState extends State<ProfileActivity> {
                   borderRadius: BorderRadius.circular(20),
                 ),
                 child: TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PostPage(),
+                      ),
+                    );
+                  },
                   child: Text("Start a Post"),
                 ),
               ),

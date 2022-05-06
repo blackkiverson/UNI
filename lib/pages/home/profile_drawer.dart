@@ -77,21 +77,21 @@ class _SideProfileState extends State<SideProfile> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Padding(
-                    padding: EdgeInsets.only(top: 100),
-                    child: TextButton(
-                      onPressed: () {},
-                      child: Text(
-                        "Software Engineering",
-                        style: TextStyle(
-                            color: Color.fromARGB(255, 175, 175, 175),
-                            fontWeight: FontWeight.w400),
-                      ),
-                    ),
-                  ),
-                ),
+                // Align(
+                //   alignment: Alignment.bottomCenter,
+                //   child: Padding(
+                //     padding: EdgeInsets.only(top: 100),
+                //     child: TextButton(
+                //       onPressed: () {},
+                //       child: Text(
+                //         "Software Engineering",
+                //         style: TextStyle(
+                //             color: Color.fromARGB(255, 175, 175, 175),
+                //             fontWeight: FontWeight.w400),
+                //       ),
+                //     ),
+                //   ),
+                // ),
               ],
             ),
           ),
@@ -137,19 +137,19 @@ class _SideProfileState extends State<SideProfile> {
             color: Color.fromARGB(255, 58, 58, 58),
             height: 5,
           ),
-          ListTile(
-            onTap: () {},
-            iconColor: Colors.white,
-            // tileColor: Color.fromARGB(255, 42, 61, 77),
-            leading: Icon(Icons.shield_outlined),
-            title: Text(
-              "Moderator Mode",
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 15,
-                  fontWeight: FontWeight.w400),
-            ),
-          ),
+          // ListTile(
+          //   onTap: () {},
+          //   iconColor: Colors.white,
+          //   // tileColor: Color.fromARGB(255, 42, 61, 77),
+          //   leading: Icon(Icons.shield_outlined),
+          //   title: Text(
+          //     "Moderator Mode",
+          //     style: TextStyle(
+          //         color: Colors.white,
+          //         fontSize: 15,
+          //         fontWeight: FontWeight.w400),
+          //   ),
+          // ),
           ListTile(
             iconColor: Colors.white,
             onTap: () {
