@@ -12,7 +12,7 @@ class WelcomePage extends StatefulWidget {
 
 class _WelcomePageState extends State<WelcomePage> {
   List images = [
-    "wp-one.jpg",
+    "wpone1.jpg",
     "wp-two.jpg",
     "wp-four.jpg",
   ];
