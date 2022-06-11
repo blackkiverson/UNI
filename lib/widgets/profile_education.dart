@@ -21,8 +21,7 @@ class _ProfileEducationState extends State<ProfileEducation> {
                 IconButton(onPressed: () {}, icon: Icon(Icons.add), color: Colors.blue),
                 IconButton(onPressed: () {}, icon: Icon(Icons.edit), color: Colors.blue),
               ],
-            ),
-            
+            ),            
           ],
         ),
         Divider(

@@ -108,7 +108,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                     SizedBox(width: 50),
                     SizedBox(
                       height: 50,
-                      width: 300,
+                      width: 250,
                       child: TextField(
                         style: TextStyle(color: Colors.blue),
                         decoration: InputDecoration(
@@ -132,7 +132,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                     SizedBox(width: 67),
                     SizedBox(
                       height: 50,
-                      width: 300,
+                      width: 250,
                       child: TextField(
                         controller: _bio,
                         style: TextStyle(color: Colors.blue),
@@ -157,7 +157,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                     SizedBox(width: 33),
                     SizedBox(
                       height: 50,
-                      width: 300,
+                      width: 250,
                       child: TextField(
                         controller: _location,
                         style: TextStyle(color: Colors.blue),
@@ -182,7 +182,7 @@ class _ProfileEditState extends State<ProfileEdit> {
                     SizedBox(width: 41),
                     SizedBox(
                       height: 50,
-                      width: 300,
+                      width: 250,
                       child: TextField(
                         style: TextStyle(color: Colors.blue),
                         decoration: InputDecoration(

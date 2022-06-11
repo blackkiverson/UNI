@@ -86,7 +86,7 @@ class DatabaseProfile {
       FirebaseFirestore.instance.collection("Profile");
 
   Future updateProfileData(String bio, String location) async {
-    return await ProfileCollections.doc(uid).set({
+    return await ProfileCollections.doc(uid).update({
       "uid": uid,
       "username": username,
       "avatarImage": avatarImage,

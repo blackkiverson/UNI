@@ -121,7 +121,7 @@ class _PostCardState extends State<PostCard> {
               //IconButton() for the comment feature
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.mode_comment_outlined),
+                icon: const Icon(Icons.mode_comment_outlined, size: 20),
                 color: Colors.white,
               ),
 
@@ -131,7 +131,7 @@ class _PostCardState extends State<PostCard> {
               //IconButton() for the share feature
               IconButton(
                 onPressed: () {},
-                icon: const Icon(Icons.share_outlined),
+                icon: const Icon(Icons.share_outlined, size: 20),
                 color: Colors.white,
               ),
             ],

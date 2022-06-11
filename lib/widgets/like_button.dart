@@ -20,7 +20,7 @@ class _LikeButtonState extends State<LikeButton> {
           },
         );
       },
-      icon: Icon(isSelected ? Icons.favorite : Icons.favorite_outline),
+      icon: Icon(isSelected ? Icons.favorite : Icons.favorite_outline, size: 20),
       color: isSelected ? Colors.red : Colors.white,
     );
   }

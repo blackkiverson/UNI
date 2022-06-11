@@ -122,7 +122,24 @@ class _AppSettingsState extends State<AppSettings> {
           ),
           
           Divider(
-            height: 20,
+            height: 30,
+          ),
+
+          ListTile(
+            onTap: () {},
+            iconColor: Color.fromARGB(255, 141, 141, 141),
+            leading: Icon(Icons.shield_outlined),
+            title: Text(
+              "Moderator Mode",
+              style: TextStyle(color: Colors.white),
+            ),
+            subtitle: Text(
+              "Request to become a moderator, for a topics community.",
+              style: TextStyle(
+                  color: Color.fromARGB(255, 141, 141, 141),
+                  fontWeight: FontWeight.w400),
+            ),
+            trailing: Icon(Icons.arrow_forward_ios_rounded, size: 20),
           ),
 
         ],

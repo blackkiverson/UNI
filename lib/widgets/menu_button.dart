@@ -11,6 +11,7 @@ class _MenuButtonState extends State<MenuButton> {
   @override
   Widget build(BuildContext context) {
     return PopupMenuButton(
+      iconSize: 20,
       padding: const EdgeInsets.only(bottom: 15),
       icon: const Icon(Icons.more_horiz_rounded, color: Colors.white,),
       color: Colors.grey.shade900,
